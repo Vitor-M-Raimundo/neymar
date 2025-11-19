@@ -377,7 +377,7 @@ window.app = new Framework7({
 		swipe: true,
 	},
 	dialog: {
-		buttonOk: 'Sim',
+		buttonOk: 'Ok',
 		buttonCancel: 'Cancelar',
 	},
 	// Add default routes
@@ -2725,4 +2725,5 @@ function carregarDadosUsuarioFresh(userType) {
 		});
 
 }
+
 
