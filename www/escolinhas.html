@@ -37,13 +37,18 @@
         <div class="page-content">
           <div class="block">
 
-            <!-- Campo de busca -->
-            <div class="search-container">
-              <span class="icon search">
-                <i class="ri-search-line"></i>
-              </span>
-              <input type="text" id="endereco" oninput="mostrarSugestoes()" placeholder="Digite o endereço">
-              <span class="icon clear" onclick="clearInput()">&#10006;</span>
+            <!-- Campo de busca com botão GPS -->
+            <div class="search-wrapper">
+              <div class="search-container">
+                <span class="icon search">
+                  <i class="ri-search-line"></i>
+                </span>
+                <input type="text" id="endereco" oninput="mostrarSugestoes()" placeholder="Digite o endereço">
+                <span class="icon clear" onclick="clearInput()">&#10006;</span>
+              </div>
+              <button class="btn-gps" onclick="buscarPorLocalizacao()" title="Usar minha localização">
+                <i class="ri-map-pin-user-fill"></i>
+              </button>
             </div>
 
             <!-- Lista de sugestões / resultados -->
