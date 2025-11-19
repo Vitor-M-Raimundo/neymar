@@ -1718,6 +1718,9 @@ window.app = new Framework7({
 					btnBuscar.addEventListener('click', () => {
 						buscarEscolinhas(page);
 					});
+					
+					// Expor função de geolocalização globalmente
+					window.buscarPorLocalizacao = buscarPorLocalizacao;
 
 					// Add back button listener for this page
 					const handleBackButton = (e) => handleUniversalBackButton(e);
@@ -2722,3 +2725,4 @@ function carregarDadosUsuarioFresh(userType) {
 		});
 
 }
+
