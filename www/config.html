@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar (Android only) -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>ProAtleta+</title>
+    <!-- Path to Framework7 Library Bundle CSS -->
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <!-- CSS PERSONALIZADO PARA MENU -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- Ícones Material Design -->
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <!-- Ícones Remix Icons -->
+    <link rel="stylesheet" href="css/remixicon/remixicon.css">
+</head>
+
+<body>
+    <!-- App root element -->
+    <div id="app">
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Config Page -->
+            <div data-name="config" class="page">
+                <!-- Top Navbar -->
+                <div class="top-nav2">
+                    <h1 class="title-logo2">Configurações</h1>
+                    <div class="navbar-btn">
+                        <a href="/#/" class="btn-voltar">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Scrollable page content -->
+                <div class="page-content" style="padding: 0;">
+
+                    <button id="btnLogout" class="config-list-item">
+                        <span class="left-group">
+                            <i class="ri-logout-box-r-line config-icon"></i>
+                            <span class="config-text">Sair da Conta</span>
+                        </span>
+                        <i class="ri-arrow-right-s-line config-arrow"></i>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Framework7 JS -->
+    <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+    <!-- Rotas -->
+    <script type="text/javascript" src="js/routes.js"></script>
+    <!-- Cordova -->
+    <script src="cordova.js"></script>
+    <!-- Lógica da página config -->
+    <script src="js/config.js"></script>
+</body>
+
+</html>

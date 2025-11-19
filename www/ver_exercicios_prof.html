@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar (Android only) -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>Treino</title>
+    <!-- Path to Framework7 Library Bundle CSS -->
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <!-- CSS PERSONALIZADO PARA MENU-->
+    <link rel="stylesheet" href="css/index.css">
+    <!--Ícones Material Design-->
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <!-- Ícones Remix Icons -->
+    <link rel="stylesheet" href="css/remixicon/remixicon.css">
+    <link rel="stylesheet" href="css/ver_exercicios_prof.css">
+
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="view view-main">
+            <div data-name="ver_treinos_professor" class="page">
+
+                <!-- Top Navbar -->
+                <div class="top-nav2">
+                    <h1 class="title-logo2">Meus Treinos</h1>
+                    <div class="navbar-btn">
+                        <a href="#" class="btn-voltar back" id="btnVoltar">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="page-content" style="padding-bottom: 140px;">
+                    <!-- Card de resumo (mesmo layout de ver_treinos_prof) -->
+                    <div class="professor-info-card" id="treinoResumo" style="margin: 0 15px 12px; display: flex; flex-direction: column;">
+                        <div style="flex:1;">
+                            <h2 id="treinoTitulo" style="margin:0; font-size:16px; text-align:center;">Carregando...</h2>
+                            <div id="treinoMeta" style="color:#64748b; font-size:13px; text-align:center;"></div>
+                        </div>
+                        <div class="progress-section" style="display:flex; margin-top:12px; width:100%; align-items:center; gap:12px;">
+                            <div class="progress-track" style="flex:1; height:10px; border-radius:6px; background:#f1f5f9; overflow:hidden;">
+                                <div class="progress-fill" style="width:0%; height:100%; background:linear-gradient(90deg, #ff7a3d 0%, #f86100 100%);"></div>
+                            </div>
+                            <div class="progress-text" style="min-width:44px; color:#f86100; font-weight:700; font-size:13px; text-align:right;">0/0</div>
+                        </div>
+                    </div>
+
+                    <div id="observacoesTreino" style="margin-top:12px; display:none;"></div>
+
+                    <div class="lista-exercicios" id="listaExercicios">
+                        <div class="empty-state">
+                            <i class="mdi mdi-loading mdi-spin"></i>
+                            <p>Carregando exercícios...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botão Finalizar Treino (fixo no rodapé) -->
+                <div class="finalizar-wrap">
+                    <button class="finalizar-btn" id="btnFinalizarTreino">
+                        <i class="ri-check-double-line"></i>
+                        Finalizar Treino
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script src="js/ver_exercicios_prof.js"></script>
+</body>
+
+</html>

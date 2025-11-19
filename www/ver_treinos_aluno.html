@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+    <title>Treinos do Aluno</title>
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css/remixicon/remixicon.css">
+    <link id="ver-treinos-aluno-css" rel="stylesheet" href="css/ver_treinos_aluno.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="view view-main">
+            <div data-name="ver_treinos_aluno" class="page">
+
+                <!-- Top Navbar -->
+                <div class="top-nav2">
+                    <div class="navbar-btn">
+                        <a href="/treinos_prof/" class="btn-voltar">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </a>
+                    </div>
+                    <h1 class="title-logo2">Treinos</h1>
+                </div>
+
+                <!-- Conteúdo da página -->
+                <div class="page-content" style="padding-top: 0;">
+                    
+                    <!-- Info do Aluno Card -->
+                    <div class="aluno-info-card">
+                        <div class="aluno-avatar" id="alunoAvatarTreinos">
+                            <i class="ri-user-line"></i>
+                        </div>
+                        <div class="aluno-dados">
+                            <h2 id="nomeAlunoTreinos">Nome do Aluno</h2>
+                        </div>
+                    </div>
+                    
+                    <!-- Lista de Treinos -->
+                    <div class="block">
+                        <div id="listaTreinos">
+                            <!-- Treinos serão carregados aqui -->
+                            <div class="empty-state">
+                                <i class="mdi mdi-loading mdi-spin"></i>
+                                <p>Carregando treinos...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup de Edição de Treino -->
+    <div id="popupEditTreino" class="popup-edit-treino">
+        <div class="popup-edit-content">
+            <div class="popup-edit-header">
+                <h3>Editar Treino</h3>
+                <button type="button" class="popup-close-btn" onclick="window.SistemaVerTreinos.actions.fecharPopupEdicao()">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+            <form id="formEditTreino" onsubmit="return false;">
+                <input type="hidden" id="editTreinoId">
+                
+                <div class="form-group-edit">
+                    <label for="editNomeTreino">Nome do Treino *</label>
+                    <input type="text" id="editNomeTreino" required placeholder="Ex: Treino A - Peito e Tríceps">
+                </div>
+
+                <div class="form-group-edit">
+                    <label for="editTipoTreino">Tipo de Treino</label>
+                    <select id="editTipoTreino">
+                        <option value="musculacao">Musculação</option>
+                        <option value="cardio">Cardio</option>
+                        <option value="funcional">Funcional</option>
+                        <option value="esporte">Esporte</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="form-group-edit">
+                    <label for="editDataTreino">Data do Treino</label>
+                    <input type="date" id="editDataTreino">
+                </div>
+
+                <div class="form-group-edit">
+                    <label for="editObservacoes">Observações Gerais</label>
+                    <textarea id="editObservacoes" rows="3" placeholder="Observações sobre o treino..."></textarea>
+                </div>
+
+                <div class="popup-actions">
+                    <button type="button" class="btn-cancel-edit" onclick="window.SistemaVerTreinos.actions.fecharPopupEdicao()">
+                        Cancelar
+                    </button>
+                    <button type="button" class="btn-save-edit" onclick="window.SistemaVerTreinos.actions.salvarEdicaoTreino()">
+                        Salvar Alterações
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script type="text/javascript" src="js/ver_treinos_aluno.js"></script>
+    <script src="cordova.js"></script>
+
+</body>
+</html>

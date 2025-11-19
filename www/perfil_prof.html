@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/popup_alunos.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="view view-main">
+            <div data-name="perfil_prof" class="page">
+
+                <!-- Top Navbar -->
+                <div class="top-nav">
+                    <div class="logo-titulo">
+                        <img src="img/logo_letrero.png">
+                    </div>
+                    <div class="navbar-btn">
+                        <a href="/config/" class="btn-config link">
+                            <i class="ri-settings-5-fill"></i>
+                        </a>
+                        <a href="#" class="btn-noti" datacount="0">
+                            <i class="mdi mdi-bell"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Scrollable page content -->
+                <div class="page-content">
+                    <!-- Bloco Foto e Dados do Professor -->
+                    <div class="block">
+                        <div class="foto-container">
+                            <img id="fotoProf" src="img/user.jpg" alt="Foto de Perfil" class="foto-perfil">
+                        </div>
+
+                        <h2 style="text-align: center;"><span id="nomeProf"></span></h2>
+                        <p style="text-align: center;"><span id="emailProf"></span></p>
+
+                        <button id="btnEditarProf" class="btnEditar" type="button">Editar Perfil</button>
+
+                    </div>
+
+                    <div class="divisoria"></div><br>
+
+                    <!-- Bloco Buscar Aluno (mais compacto) -->
+                    <div class="swiper mySwiper_prof">
+                        <div class="swiper-wrapper">
+
+                            <!-- Slide 1: Buscar Aluno -->
+                            <div class="swiper-slide">
+                                <div class="block buscar-aluno">
+                                    <form id="buscarAlunoForm" action="https://proatleta.site/solicitacao.php"
+                                        method="POST">
+                                        <div class="list no-hairlines">
+                                            <ul>
+                                                <li>
+                                                    <h2 class="title-input">Buscar Aluno</h2>
+                                                    <div class="item-content item-input">
+                                                        <div class="item-inner">
+                                                            <div class="item-input-wrap">
+                                                                <input type="email" id="busca_email" name="busca_email"
+                                                                    placeholder="Digite o email do aluno" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <button type="submit" class="button button-fill">Procurar</button>
+                                    </form>
+                                    <div id="resultadoBusca"></div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2: Teste -->
+                            <div class="swiper-slide">
+                                <div class="block botao-aluno" tabindex="0" id="btnAlunos">
+                                    <img src="img/aluno.png" alt="Aluno" />
+                                    <div class="hover-aluno">alunos</div>
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="swiper-pagination"></div>
+                    </div>
+
+                    <div class="sheet-modal" id="sheetAlunos">
+                        <div class="sheet-modal-inner">
+                            <button class="close-sheet2 button">Fechar</button>
+                            <h3>Seus Alunos</h3>
+                            <div class="container_prof" id="prof-container"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script src="js/foto_prof.js"></script>
+    <script src="js/solicitacao.js"></script>
+    <script src="js/popup_alunos.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/editar_prof.js"></script>
+    <script src="cordova.js"></script>
+    <script src="cordova.js"></script>
+</body>
+
+</html>

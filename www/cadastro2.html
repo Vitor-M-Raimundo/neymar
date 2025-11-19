@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+    <title>Cadastro - Etapa 2</title>
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/remixicon/remixicon.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="view view-main">
+            <div data-name="cadastro-step2" class="page">
+                <div class="top-nav2">
+                    <h1 class="title-logo2">Cadastro</h1>
+                    <div class="navbar-btn">
+                        <a href="*" class="btn-voltar" onclick="window.location.href='cadastro.html'">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="page-content">
+                    <div class="block">
+                        <h1>Quase lá!</h1>
+                        <p class="cadastro-subtitle">Preencha com suas credenciais de acesso.</p>
+
+                        <form id="cadastroStep2Form" action="https://proatleta.site/cadastro_aluno.php" method="POST">
+                            <div class="list no-hairlines">
+                                <ul>
+                                    <li>
+                                        <h2 class="title-input">Email</h2>
+                                        <div class="item-content item-input">
+                                            <div class="item-inner">
+                                                <div class="item-input-wrap">
+                                                    <input type="email" id="email" name="email"
+                                                        placeholder="Digite seu email" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h2 class="title-input">Senha</h2>
+                                        <div class="item-content item-input">
+                                            <div class="item-inner">
+                                                <div class="item-input-wrap">
+                                                    <input type="password" id="senha" name="senha"
+                                                        placeholder="Digite sua senha" required>
+                                                    <i id="viewPassword" class="password-toggle-icon ri-eye-line"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h2 class="title-input">Confirme sua Senha</h2>
+                                        <div class="item-content item-input">
+                                            <div class="item-inner">
+                                                <div class="item-input-wrap">
+                                                    <input type="password" id="confirmar" name="confirmar"
+                                                        placeholder="Confirme sua senha" required>
+                                                    <i id="viewPassword3" class="password-toggle-icon ri-eye-line"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Campos ocultos com dados da etapa 1 -->
+                            <input type="hidden" name="nome" id="hidden_nome">
+                            <input type="hidden" name="sobrenome" id="hidden_sobrenome">
+                            <input type="hidden" name="dataNascimento" id="hidden_dataNascimento">
+                            <input type="hidden" name="cpf" id="hidden_cpf">
+                            <input type="hidden" name="telefone" id="hidden_telefone">
+                            <input type="hidden" name="categoria" id="hidden_categoria">
+
+                            <div class="cadastro-button">
+                                <button type="submit" class="button">Finalizar Cadastro</button>
+                            </div>
+                        </form>
+
+                        <div id="mensagem" class="block text-align-center color-green"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/cadastro2.js"></script>
+</body>
+
+</html>

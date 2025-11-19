@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#2196f3">
+  <title>Login</title>
+  <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="view view-main">
+      <div data-name="login" class="page">
+
+        <!-- Top Navbar -->
+        <div class="top-nav2">
+          <h1 class="title-logo2">Login</h1>
+          <div class="navbar-btn">
+            <a href="index.html" class="btn-voltar" id="btnVoltar">
+              <i class="ri-arrow-left-s-line" style="color: #333;"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="page-content">
+          <div class="login-container">
+            <h1>Bem-Vindo ao ProAtleta!</h1>
+            <p class="login-subtitle">Para conectar com sua conta,<br>preencha as informações de login.</p>
+
+            <form id="loginForm" action="https://proatleta.site/login.php" method="POST">
+              <div class="list no-hairlines">
+                <ul>
+                  <li>
+                    <h2 class="title-input">Email</h2>
+                    <div class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-input-wrap">
+                          <input type="email" id="email" name="email" placeholder="Seu Email" required />
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <h2 class="title-input">Senha</h2>
+                    <div class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-input-wrap">
+                          <input type="password" id="senha" name="senha" placeholder="Sua Senha" required />
+                          <i class="password-toggle-icon ri-eye-line" id="viewPassword2" role="button" aria-label="Mostrar senha"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="forgot-password">
+                <!-- tornar link externo mais resiliente: abre em nova aba e marcado como external (FW7) -->
+                <a href="https://proatleta.site/html/esqueci_senha.html" id="forgotLink" class="external" target="_blank" rel="noopener noreferrer">Esqueceu sua senha?</a>
+              </div>
+
+              <div class="login-button">
+                <button type="submit" class="button">Entrar</button>
+              </div>
+            </form>
+            <div class="signup-link">
+              <p>Não tem conta? <a href="/escolha_cadastro/">Fazer Cadastro</a></p>
+            </div>
+
+            <div id="mensagemLogin" class="msg block text-align-center color-red"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="lib/framework7-bundle.min.js"></script>
+  <script src="lib/jquery-3.7.0.min.js"></script>
+  <script src="cordova.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/mascara_login.js"></script>
+</body>
+
+</html>

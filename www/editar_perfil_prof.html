@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#2196f3" />
+  <title>Editar Perfil</title>
+  <link rel="stylesheet" href="lib/framework7-bundle.min.css" />
+  <link rel="stylesheet" href="css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="css/editar_perfil.css" />
+</head>
+
+<body>
+  <div id="app">
+    <div class="view view-main">
+      <!-- Corrigido: data-name -->
+      <div class="page" data-name="editar_prof">
+        <div class="top-nav2">
+          <h1 class="title-logo2">Editar Perfil</h1>
+          <div class="navbar-btn">
+            <a href="/perfil_prof/" class="btn-voltar" aria-label="Voltar">
+              <i class="ri-arrow-left-s-line"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="page-content">
+          <div class="foto-container">
+            <img id="fotoProfPreview" src="img/user.jpg" alt="Foto de Perfil" class="foto-perfil" />
+            <input type="file" id="foto_prof_change" name="foto_editar" accept="image/*" class="input-arquivo_editar" />
+            <label for="foto_prof_change" class="botao-upload"><i class="mdi mdi-pencil"></i></label>
+          </div>
+
+          <form id="editarProfForm" novalidate>
+            <h2 class="input-title">Email</h2>
+            <input type="email" id="email_prof_change" name="email_change" placeholder="Digite seu novo email"
+              required />
+
+            <h2 class="input-title">Senha</h2>
+            <div class="input-wrapper">
+              <input type="password" id="senha_prof_change" name="senha_change" minlength="6"
+                pattern="(?=.*[A-Z])(?=.*\\d).{6,}" title="Min 6, 1 maiúscula e 1 número." autocomplete="new-password"
+                placeholder="Nova senha (opcional)" />
+              <span id="toggleSenhaProf" class="password-toggle-icon mdi mdi-eye" data-target="senha_prof_change"
+                aria-label="Mostrar/ocultar senha"></span>
+            </div>
+
+            <h2 class="input-title">Telefone</h2>
+            <input type="tel" id="tel_prof_change" name="tel_change" placeholder="Digite seu novo telefone" required />
+
+            <button type="submit" class="btn-salvar-prof">Salvar Alterações</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script src="lib/framework7-bundle.min.js"></script>
+  <script src="lib/jquery-3.7.0.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/salvar_foto.js"></script>
+  <script src="js/mascara_cadastro.js"></script>
+  <!-- Corrigido: usar o JS do professor -->
+  <script src="js/editar_prof.js"></script>
+</body>
+
+</html>

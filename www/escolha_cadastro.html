@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/remixicon/remixicon.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="view view-main">
+            <div data-name="cadastro" class="page">
+
+                <!-- Top Navbar -->
+                <div class="top-nav2">
+                    <h1 class="title-logo2">Cadastro</h1>
+                    <div class="navbar-btn">
+                        <a href="*" class="btn-voltar" onclick="window.location.href='index.html'">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Página com formulário -->
+                <div class="page-content">
+                    <div class="block">
+                        <h1>Escolha sua Categoria</h1>
+
+                        <button class="escolha-container" data-tipo="aluno" onclick="window.location.href='cadastro.html'">
+                            <i class="mdi mdi-account-multiple-plus escolha-icon"></i>
+                            <span class="escolha-texto">Aluno</span>
+                        </button>
+
+                        <button class="escolha-container" data-tipo="professor" onclick="window.location.href='cadastro_prof.html'">
+                            <i class="mdi mdi-account-tie escolha-icon"></i>
+                            <span class="escolha-texto">Professor</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+        <script type="text/javascript" src="js/routes.js"></script>
+        <script src="cordova.js"></script>
+
+</body>
+
+</html>

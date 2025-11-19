@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+    <title>Adicionar Treino</title>
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css/remixicon/remixicon.css">
+    <link rel="stylesheet" href="css/adicionar_treino.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="view view-main">
+            <div data-name="adicionar_treino" class="page">
+
+                <!-- Top Navbar -->
+                <div class="top-nav2">
+                    <div class="navbar-btn">
+                        <a href="/treinos_prof/" class="btn-voltar">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </a>
+                    </div>
+                    <h1 class="title-logo2">Adicionar Treino</h1>
+                </div>
+
+                <!-- Conteúdo da página -->
+                <div class="page-content">
+
+                    <!-- Info do Aluno Card -->
+                    <div class="aluno-info-card">
+                        <div class="aluno-avatar" id="alunoAvatarTreino">
+                            <i class="ri-user-line"></i>
+                        </div>
+                        <div class="aluno-dados">
+                            <h2 id="nomeAlunoTreino">Nome do Aluno</h2>
+                        </div>
+                    </div>
+
+                    <!-- Formulário -->
+                    <div class="treino-form">
+                        <form id="form-treino">
+
+                            <!-- Informações básicas do treino -->
+                            <div class="form-group">
+                                <label for="nome_treino">Nome do Treino *</label>
+                                <input type="text" id="nome_treino" name="nome_treino" required
+                                    placeholder="Ex: Treino A - Peito e Tríceps">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="tipo_treino">Tipo de Treino</label>
+                                    <select id="tipo_treino" name="tipo_treino">
+                                        <option value="musculacao">Musculação</option>
+                                        <option value="cardio">Cardio</option>
+                                        <option value="funcional">Funcional</option>
+                                        <option value="esporte">Esporte</option>
+                                        <option value="outro">Outro</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="data_treino">Data do Treino</label>
+                                    <input type="date" id="data_treino" name="data_treino">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="observacoes">Observações Gerais</label>
+                                <textarea id="observacoes" name="observacoes" rows="3"
+                                    placeholder="Observações sobre o treino..."></textarea>
+                            </div>
+
+                            <!-- Seção de exercícios -->
+                            <div class="exercicios-section">
+                                <div class="exercicios-header">
+                                    <h3>Exercícios</h3>
+                                </div>
+
+                                <div id="exercicios-container">
+                                    <!-- Exercícios serão adicionados dinamicamente aqui -->
+                                </div>
+                                <button type="button" class="btn-adicionar-exercicio" onclick="adicionarExercicio()">
+                                    <i class="ri-add-line"></i>
+                                    Adicionar Exercício
+                                </button>
+                            </div>
+
+                            <!-- Botão salvar -->
+                            <button type="button" class="btn-salvar" onclick="salvarTreino()">
+                                <i class="ri-save-line"></i>
+                                Salvar Treino
+                            </button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script type="text/javascript" src="js/adicionar_treino.js"></script>
+    <script src="cordova.js"></script>
+
+</body>
+
+</html>

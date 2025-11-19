@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#2196f3">
+  <title>Busca Escolinhas</title>
+
+  <!-- Framework7 -->
+  <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="css/escolinhas.css">
+  <!-- Ícones -->
+  <link rel="stylesheet" href="css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="css/remixicon/remixicon.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="view view-main">
+      <div data-name="busca-escolinha" class="page">
+
+        <!-- Navbar -->
+        <div class="top-nav2">
+          <h1 class="title-logo2">Buscar Escolinha</h1>
+          <div class="navbar-btn">
+            <a href="#" class="btn-voltar back">
+              <i class="ri-arrow-left-s-line"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Conteúdo -->
+        <div class="page-content">
+          <div class="block">
+
+            <!-- Campo de busca -->
+            <div class="search-container">
+              <span class="icon search">
+                <i class="ri-search-line"></i>
+              </span>
+              <input type="text" id="endereco" oninput="mostrarSugestoes()" placeholder="Digite o endereço">
+              <span class="icon clear" onclick="clearInput()">&#10006;</span>
+            </div>
+
+            <!-- Lista de sugestões / resultados -->
+            <ul id="resultados"></ul>
+
+          </div>
+
+          <!-- Detalhe do endereço da escolinha -->
+          <div id="endereco-escolinha" class="endereco-box"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="lib/framework7-bundle.min.js"></script>
+  <script src="lib/jquery-3.7.0.min.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="cordova.js"></script>
+  <script src="js/escolinha.js"></script>
+</body>
+
+</html>

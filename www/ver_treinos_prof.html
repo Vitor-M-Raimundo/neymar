@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar (Android only) -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>Meus Treinos</title>
+    <!-- Path to Framework7 Library Bundle CSS -->
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <!-- CSS PERSONALIZADO PARA MENU-->
+    <link rel="stylesheet" href="css/index.css">
+    <!--Ícones Material Design-->
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <!-- Ícones Remix Icons -->
+    <link rel="stylesheet" href="css/remixicon/remixicon.css">
+    <!-- CSS para ver_treinos_prof -->
+    <link rel="stylesheet" href="css/ver_treinos_prof.css">
+</head>
+
+<body>
+    <!-- App root element -->
+    <div id="app">
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Initial Page -->
+            <div data-name="ver_treinos_professor" class="page">
+                
+                <!-- Top Navbar -->
+                <div class="top-nav2">
+                    <h1 class="title-logo2">Meus Treinos</h1>
+                    <div class="navbar-btn">
+                        <a href="#" class="btn-voltar back">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Professor Info Card (novo) -->
+                <div class="page-content">
+                    <div class="block">
+                        <div class="professor-info-card" style="margin: 0 15px 12px;">
+                            <div class="professor-avatar" id="professorAvatarTreinos">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <div class="professor-dados">
+                                <h2 id="nomeProfessorTreinos">Nome do Professor</h2>
+                                
+                                <!-- stats-container removido; resumo será exibido dinamicamente via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Search -->
+                        <div class="search-container">
+                            <input type="text" class="search-input" id="searchTreinos" placeholder="Buscar treinos...">
+                        </div>
+
+                        <!-- Treinos Container -->
+                        <div class="treinos-container">
+                            <div id="listaTreinosProfessor">
+                                <div class="loader-container">
+                                    <div class="preloader"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Path to Framework7 Library Bundle JS-->
+        <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+        <!-- jQuery -->
+        <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+        <!-- Roteamento do app-->
+        <script type="text/javascript" src="js/routes.js"></script>
+        <script type="text/javascript" src="js/ver_treinos_prof.js"></script>
+        <script src="cordova.js"></script>
+    </div>
+</body>
+
+</html>

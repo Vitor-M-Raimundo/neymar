@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+    <title>Agenda do Aluno</title>
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css/remixicon/remixicon.css">
+    <link rel="stylesheet" href="css/agenda_aluno.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="view view-main">
+            <div data-name="agenda-aluno" class="page">
+                <!-- Loading Overlay -->
+                <div class="loading-overlay" id="loadingOverlay">
+                    <div class="loading-content">
+                        <div class="loading-spinner">
+                            <i class="ri-loader-4-line"></i>
+                        </div>
+                        <h3>Carregando Agenda</h3>
+                        <p>Preparando calendário do aluno...</p>
+                        <div class="loading-progress">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Navbar -->
+                <div class="top-nav2">
+                    <h1 class="title-logo2" id="nomeAlunoTitulo" class="title-logo2">Agenda do Aluno</h1>
+                    <div class="navbar-btn">
+                        <a href="/agenda_prof/" class="btn-voltar">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Page Content -->
+                <div class="page-content" id="pageContent" style="display: none;">
+                    <!-- Info do Aluno -->
+                    <div class="aluno-info-card">
+                        <div class="aluno-avatar" id="alunoAvatar">
+                            <i class="ri-user-line"></i>
+                        </div>
+                        <div class="aluno-dados">
+                            <h2 id="nomeAluno">Nome do Aluno</h2>
+                        </div>
+                    </div>
+
+                    <!-- Calendário -->
+                    <div class="calendario-container">
+                        <div class="mes-ano">
+                            <button class="btn-mes" onclick="mudarMesAluno(-1)">
+                                <i class="ri-arrow-left-s-line"></i>
+                            </button>
+
+                            <div class="mes-display">
+                                <div class="dia-numero" id="diaAtualAluno">--</div>
+                                <div class="mes-nome" id="mesAtualAluno">---</div>
+                                <div class="ano-numero" id="anoAtualAluno">----</div>
+                            </div>
+
+                            <button class="btn-mes" onclick="mudarMesAluno(1)">
+                                <i class="ri-arrow-right-s-line"></i>
+                            </button>
+                        </div>
+
+                        <div class="dias-semana">
+                            <div class="dia-semana">D</div>
+                            <div class="dia-semana">S</div>
+                            <div class="dia-semana">T</div>
+                            <div class="dia-semana">Q</div>
+                            <div class="dia-semana">Q</div>
+                            <div class="dia-semana">S</div>
+                            <div class="dia-semana">S</div>
+                        </div>
+
+                        <div class="dias-grid" id="diasGridAluno">
+                            <!-- Dias serão gerados pelo JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Lista de Eventos do Aluno -->
+                    <div class="eventos-container" id="eventosContainerAluno">
+                        <div class="sem-eventos">
+                            <i class="ri-calendar-line"></i>
+                            Nenhum evento agendado para este dia
+                        </div>
+                    </div>
+
+                    <!-- Formulário para Adicionar Evento -->
+                    <div class="form-adicionar-evento">
+                        <div class="form-header">
+                            <h3>Adicionar Evento</h3>
+                            <div class="data-selecionada" id="dataSelecionada">
+                                Selecione um dia no calendário
+                            </div>
+                        </div>
+
+                        <form id="formEvento">
+                            <div class="form-group">
+                                <label for="eventoTitulo">Título do Evento *</label>
+                                <input type="text" id="eventoTitulo" placeholder="Ex: Treino de Futebol" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="eventoHorarioInicio">Hora Início *</label>
+                                    <input type="time" id="eventoHorarioInicio" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="eventoHorarioFim">Hora Fim *</label>
+                                    <input type="time" id="eventoHorarioFim" class="form-input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="eventoLocal">Local *</label>
+                                <input type="text" id="eventoLocal" placeholder="Ex: Campo de Futebol">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="eventoDescricao">Descrição (opcional)</label>
+                                <textarea id="eventoDescricao" placeholder="Detalhes adicionais do evento..." rows="3"></textarea>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" onclick="limparFormulario()" class="btn-limpar">
+                                    Limpar
+                                </button>
+                                <button type="submit" class="btn-salvar">
+                                    <i class="ri-save-line"></i>
+                                    Salvar Evento
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/framework7-bundle.min.js"></script>
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script src="js/agenda_aluno.js"></script>
+</body>
+
+</html>

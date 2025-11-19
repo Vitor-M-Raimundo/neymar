@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#2196f3">
+  <title>Chat com o Aluno</title>
+  <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+  <link rel="stylesheet" href="css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="css/chat_aluno.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="view view-main">
+      <div class="page chat-page" data-name="chat_prof">
+        <div class="top-nav">
+          <a class="back-button" href="/perfil_prof/" aria-label="Voltar">
+            <i class="mdi mdi-arrow-left"></i>
+          </a>
+          <div class="top-title">
+            <img id="alunoFoto" src="img/user.jpg" alt="Foto do Aluno" class="prof-foto">
+            <div class="top-meta">
+              <div id="alunoNome" class="name">Nome do Aluno</div>
+            </div>
+          </div>
+          <div class="right-actions"></div>
+        </div>
+
+        <div class="page-content">
+          <div class="chat-box">
+            <div id="chatMessages" class="messages"></div>
+            <form id="chatForm" class="chat-input">
+              <input type="text" id="chatText" placeholder="Escreva uma mensagem..." autocomplete="off" />
+              <button type="submit" class="button button-fill send-btn" aria-label="Enviar">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="lib/framework7-bundle.min.js"></script>
+  <script src="lib/jquery-3.7.0.min.js"></script>
+  <script src="js/chat_core.js"></script>
+  <script src="js/chat_prof.js"></script>
+</body>
+
+</html>

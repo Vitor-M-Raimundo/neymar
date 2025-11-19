@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+    <title>Perfil</title>
+
+    <!-- Framework7 CSS -->
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/perfil_aluno.css">
+    <link rel="stylesheet" href="css/popup_solicitacao.css">
+    <link rel="stylesheet" href="css/popup_prof.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="view view-main">
+            <div data-name="link5" class="page">
+
+                <!-- Top Navbar -->
+                <div class="top-nav">
+                    <div class="logo-titulo">
+                        <img src="img/logo_letrero.png">
+
+                    </div>
+                    <div class="navbar-btn">
+                        <a href="/config/" class="btn-config link">
+                            <i class="ri-settings-5-fill"></i>
+                        </a>
+                        <a href="#" class="btn-noti" datacount="0">
+                            <i class="mdi mdi-bell"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Conteúdo da página -->
+                <div class="page-content">
+                    <div class="block">
+
+                        <div class="foto-container">
+                            <img id="fotoUsuario" src="img/user.jpg" alt="Foto de Perfil" class="foto-perfil">
+                        </div>
+
+                        <h2 style="text-align: center; margin-bottom: -20px;"><span id="nomeUsuario"></span></h2>
+                        <p style="text-align: center;"><span id="emailUsuario"></span></p>
+
+                        <button id="btnEditarPerfil" class="btnEditar" type="button">Editar Perfil</button>
+
+
+                    </div>
+
+                    <div class="divisoria"></div><br>
+
+                    <div class="block esp1">
+                        <button type="button" class="button button-fill esp2 orange"
+                            id="btnProfessores">Solicitações
+                        </button>
+
+                        <button type="button" class="button button-fill orange" id="btnAssociados">Meus
+                            professores
+                        </button>
+                    </div>
+
+                    <!-- Sheet Modal -->
+                    <div class="sheet-modal" id="sheetProfessores">
+                        <div class="sheet-modal-inner">
+                            <button class="close-sheet button">Fechar</button>
+                            <h3>Solicitações de Professores</h3>
+                            <div class="container" id="solicitacoes-container"></div>
+                        </div>
+                    </div>
+
+                    <div class="sheet-modal" id="sheetAssociado">
+                        <div class="sheet-modal-inner">
+                            <button class="close-sheet2 button">Fechar</button>
+                            <h3>Professores</h3>
+                            <div class="container_prof" id="prof-container"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="lib/framework7-bundle.min.js"></script>
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/salvar_foto.js"></script>
+    <script src="js/popup_solicitacoes.js"></script>
+    <script src="js/popup_associados.js"></script>
+    <script src="cordova.js"></script>
+
+</body>
+
+</html>

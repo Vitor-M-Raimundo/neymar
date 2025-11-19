@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+    <title>Agenda</title>
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/agenda_prof.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css/remixicon/remixicon.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="view view-main">
+            <div data-name="agenda-alunos" class="page">
+                <!-- Top Navbar -->
+                <div class="top-nav">
+                    <div class="logo-titulo">
+                        <img src="img/logo_letrero.png">
+                    </div>
+                    <div class="navbar-btn">
+                        <a href="/config/" class="btn-config link">
+                            <i class="ri-settings-5-fill"></i>
+                        </a>
+                        <a href="#" class="btn-noti" datacount="0">
+                            <i class="mdi mdi-bell"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <!-- Lista de Alunos -->
+                    <div class="block">
+                        <div class="search-container">
+                            <div class="search-box">
+                                <!-- ID alterado -->
+                                <input class="search-input" type="text" id="buscarAlunoAgenda" placeholder="Buscar aluno...">
+                                <i class="ri-search-line search-icon"></i>
+                            </div>
+                        </div>
+
+                        <!-- ID alterado -->
+                        <div id="listaAlunosAgenda">
+                            <div class="empty-state">
+                                <i class="mdi mdi-loading mdi-spin"></i>
+                                <p>Carregando alunos...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="lib/framework7-bundle.min.js"></script>
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script src="js/agenda_prof.js"></script>
+</body>
+
+</html>

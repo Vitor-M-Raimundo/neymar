@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar (Android only) -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>Treino</title>
+    <!-- Path to Framework7 Library Bundle CSS -->
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <!--Ícones Material Design-->
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <!-- CSS específico para professor -->
+    <link rel="stylesheet" href="css/index_prof.css">
+</head>
+
+<body>
+    <!-- App root element -->
+    <div id="app">
+        <!-- View principal -->
+        <div class="view view-main">
+
+            <!-- Página inicial -->
+            <div data-name="index" class="page color-theme-blue">
+                <!-- Top Navbar -->
+                <div class="top-nav">
+                    <div class="logo-titulo">
+                        <img src="img/logo_letrero.png">
+                    </div>
+                    <div class="navbar-btn">
+                        <a href="/config/" class="btn-config link">
+                            <i class="ri-settings-5-fill"></i>
+                        </a>
+                        <a href="#" class="btn-noti" datacount="0">
+                            <i class="mdi mdi-bell"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Conteúdo principal -->
+                <div class="page-content">
+
+                    <!-- Welcome block (mesma funcionalidade do index.html) -->
+                    <div class="block welcome-block">
+                        <div class="welcome-container">
+                            <div class="welcome-text">
+                                <h2>Olá, <span id="welcomeUserName">Professor</span>!</h2>
+                                <p class="welcome-subtitle">Bem-vindo de volta</p>
+                            </div>
+                            <!-- Clique na foto leva para /perfil_prof/ -->
+                            <a href="/perfil_prof/" class="link profile-photo-link" title="Ver perfil">
+                                <img id="welcomeUserPhoto" src="img/user.jpg" alt="Foto de Perfil" class="welcome-photo" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="divisoria"></div>
+
+                    <div class="block">
+                        <div class="btn-home shortcuts">
+                            <a href="/treinos_prof/"><i class="mdi mdi-dumbbell btn-icone"></i>Gerenciar Treinos</a>
+                            <a href="/agenda_prof/"><i class="mdi mdi-calendar btn-icone"></i>Agenda</a>
+                            <a href="/perfil_prof/"><i class="mdi mdi-account-circle btn-icone"></i>Perfil</a>
+                        </div>
+                    </div>
+
+                    <div class="divisoria"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Path to Framework7 Library Bundle JS-->
+    <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+    <!-- Roteamento do app-->
+    <script type="text/javascript" src="js/routes.js"></script>
+    <!-- JS específico do welcome-block (professor) -->
+    <script type="text/javascript" src="js/index_prof.js"></script>
+    <script src="cordova.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+    <title>Início</title>
+
+    <!-- Framework7 CSS -->
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- Ícones -->
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css/remixicon/remixicon.css">
+</head>
+
+<body>
+
+    <!-- Splash Screen -->
+    <div id="splash" class="splash-screen">
+        <img src="img/logo.png" class="splash-logo" />
+    </div>
+
+    <!-- App root -->
+    <div id="app">
+        <!-- View principal -->
+        <div class="view view-main">
+            <!-- TAB BAR inferior -->
+            <div class="toolbar toolbar-bottom">
+                <div class="toolbar-inner display-flex">
+                    <!-- Botões do Aluno -->
+                    <a href="/index/" class="tab-link link aluno-link" data-user="aluno">
+                        <i class="ri-home-2-fill"></i><span>Início</span>
+                    </a>
+                    <a href="/proatletaplus/" class="tab-link link aluno-link" data-user="aluno">
+                        <i class="ri-add-large-fill"></i><span>ProAtleta+</span>
+                    </a>
+                    <a href="/treinos_aluno/" class="tab-link link aluno-link" data-user="aluno">
+                        <i class="mdi mdi-dumbbell"></i><span>Treino</span>
+                    </a>
+                    <a href="/agenda/" class="tab-link link aluno-link" data-user="aluno">
+                        <i class="ri-calendar-fill"></i><span>Agenda</span>
+                    </a>
+                    <a href="/link5/" class="tab-link link aluno-link" data-user="aluno">
+                        <i class="ri-user-fill"></i><span>Perfil</span>
+                    </a>
+
+                    <!-- Botões do Professor -->
+
+                    <a href="/prof/" class="tab-link link prof-link" data-user="professor" style="display: none;">
+                        <i class="ri-home-2-fill"></i><span>Início</span>
+                    </a>
+                    <a href="/treinos_prof/" class="tab-link link prof-link" data-user="professor"
+                        style="display: none;">
+                        <i class="mdi mdi-dumbbell"></i><span>Treino</span>
+                    </a>
+                    <a href="/agenda_prof/" class="tab-link link prof-link" data-user="professor"
+                        style="display: none;">
+                        <i class="ri-calendar-fill"></i><span>Agenda</span>
+                    </a>
+                    <a href="/perfil_prof/" class="tab-link link prof-link" data-user="professor"
+                        style="display: none;">
+                        <i class="ri-user-fill"></i><span>Perfil</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página inicial -->
+        <div data-name="index" class="page color-theme-blue">
+            <!-- Top Navbar -->
+            <div class="top-nav">
+                <div class="logo-titulo">
+                    <img src="img/logo_letrero.png">
+                </div>
+                <div class="navbar-btn">
+                    <a href="/config/" class="btn-config link">
+                        <i class="ri-settings-5-fill"></i>
+                    </a>
+                    <a href="#" class="btn-noti" datacount="0">
+                        <i class="mdi mdi-bell"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Conteúdo principal -->
+            <div class="page-content">
+                <!-- Saudação e foto do perfil -->
+                <div class="block welcome-block">
+                    <div class="welcome-container">
+                        <div class="welcome-text">
+                            <h2>Olá, <span id="welcomeUserName">Usuário</span>!</h2>
+                            <p class="welcome-subtitle">Bem-vindo de volta</p>
+                        </div>
+                        <!-- Clique na foto leva para /link5/ via router (Framework7) -->
+                        <a href="/link5/" class="link profile-photo-link" title="Ver perfil">
+                            <img id="welcomeUserPhoto" src="img/user.jpg" alt="Foto de Perfil" class="welcome-photo" />
+                        </a>
+                    </div>
+                </div>
+
+                <div class="divisoria"></div>
+
+
+                <div class="block aluno-link" data-user="aluno">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="/proatletaplus/" class="link">
+                                    <img src="img/propaganda1.png">
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/propaganda_2.png">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/propaganda3.png">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/propaganda4.png">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <div class="divisoria"></div>
+
+                <div class="btn-home">
+                    <a href="/esporte_escolinha/"><i class="mdi mdi-magnify btn-icone"></i>Buscar Escolinha</a>
+                    <div class="divisoria"></div>
+                    <!--<a href="/peneiras/"><i class="mdi mdi-clipboard-text btn-icone"></i>Peneiras</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts - Make sure these are in this exact order -->
+    <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="js/push.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/chat_core.js"></script>
+    <script src="cordova.js"></script>
+
+</body>
+
+</html>

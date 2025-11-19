@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+    <title>Exercícios do Treino</title>
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css/remixicon/remixicon.css">
+    <link rel="stylesheet" href="css/ver_exercicios_aluno.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="view view-main">
+            <div data-name="ver_exercicios_aluno" class="page">
+                
+                <!-- Top Navbar -->
+                <div class="top-nav2">
+                    <h1 class="title-logo2">Meus Treinos</h1>
+                    <div class="navbar-btn">
+                        <a href="#" class="btn-voltar back" id="btnVoltar">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="page-content" style="padding-bottom: 150px !important;">
+                    <!-- Card de resumo (sem progresso) -->
+                    <div class="professor-info-card" id="treinoResumo" style="margin: 0 15px 12px; display: flex; flex-direction: column;">
+                        <div style="flex:1;">
+                            <h2 id="treinoTitulo" style="margin:0; font-size:16px; text-align:center;">Carregando...</h2>
+                            <div id="treinoMeta" style="color:#64748b; font-size:13px; text-align:center;"></div>
+                        </div>
+                    </div>
+
+                    <div id="observacoesTreino" style="margin-top:12px; display:none;"></div>
+
+                    <div class="lista-exercicios" id="listaExercicios" style="padding-bottom: 100px;">
+                        <div class="empty-state">
+                            <i class="mdi mdi-loading mdi-spin"></i>
+                            <p>Carregando exercícios...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão Finalizar FORA do page-content -->
+        <div class="finalizar-wrap" style="position: fixed; bottom: 70px; z-index: 900;">
+            <button id="btnFinalizarTreino" class="finalizar-btn" onclick="window.SistemaVerExerciciosAluno.actions.finalizarTreino()">
+                <i class="ri-check-line"></i>
+                Finalizar Treino
+            </button>
+        </div>
+
+        <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+        <script type="text/javascript" src="js/routes.js"></script>
+        <script type="text/javascript" src="js/ver_exercicios_aluno.js"></script>
+        <script src="cordova.js"></script>
+    </div>
+</body>
+
+</html>
