@@ -268,6 +268,172 @@ out center;
   }
 }
 
+// ---------------- BUSCAR POR GEOLOCALIZAÇÃO ----------------
+async function buscarPorLocalizacao() {
+  const resultados = document.getElementById('resultados');
+  const btnGps = document.querySelector('.btn-gps');
+  
+  if (!resultados) return;
+
+  const esporteSelecionado = (localStorage.getItem('esporteSelecionado') || '').toLowerCase();
+  if (!esporteSelecionado) {
+    app.dialog.alert('Selecione um esporte antes de buscar.', 'Atenção');
+    return;
+  }
+
+  // Verificar se o plugin de geolocalização está disponível
+  if (!navigator.geolocation) {
+    app.dialog.alert('Geolocalização não disponível neste dispositivo.', 'Erro');
+    return;
+  }
+
+  // Mostrar loading
+  resultados.innerHTML = '<li>Obtendo sua localização...</li>';
+  if (btnGps) btnGps.classList.add('loading');
+
+  // Opções de geolocalização
+  const geoOptions = {
+    enableHighAccuracy: true,
+    timeout: 15000,
+    maximumAge: 0
+  };
+
+  navigator.geolocation.getCurrentPosition(
+    async (position) => {
+      const latRef = position.coords.latitude;
+      const lonRef = position.coords.longitude;
+
+      resultados.innerHTML = '<li>Buscando escolinhas próximas...</li>';
+
+      try {
+        // Obter endereço da localização atual
+        const geoResp = await fetch(
+          `https://us1.locationiq.com/v1/reverse.php?key=${API_KEY}&lat=${latRef}&lon=${lonRef}&format=json`
+        );
+
+        if (geoResp.ok) {
+          const geoData = await geoResp.json();
+          const enderecoFormatado = limparEndereco(geoData.display_name || '');
+          const inputEl = document.getElementById('endereco');
+          if (inputEl) {
+            inputEl.value = enderecoFormatado;
+            localStorage.setItem('ultimoEndereco', enderecoFormatado);
+          }
+        }
+
+        // Buscar escolinhas próximas
+        const overpassQuery = `
+[out:json][timeout:25];
+(
+  node["leisure"="sports_centre"]["sport"="${esporteSelecionado}"](around:5000,${latRef},${lonRef});
+  way["leisure"="sports_centre"]["sport"="${esporteSelecionado}"](around:5000,${latRef},${lonRef});
+  relation["leisure"="sports_centre"]["sport"="${esporteSelecionado}"](around:5000,${latRef},${lonRef});
+);
+out center;
+`;
+
+        const overpassData = await fetchOverpassWithFallback(overpassQuery);
+        resultados.innerHTML = '';
+
+        let locais = (overpassData.elements || []).filter(item => item.tags && item.tags.name);
+
+        if (!locais.length) {
+          resultados.innerHTML = '<li>Nenhuma escolinha encontrada próxima à sua localização.</li>';
+          return;
+        }
+
+        locais = locais.map(item => {
+          const itemLat = item.lat || (item.center && item.center.lat);
+          const itemLon = item.lon || (item.center && item.center.lon);
+          const distancia = calcularDistancia(latRef, lonRef, itemLat, itemLon);
+          return {
+            nome: item.tags.name,
+            lat: itemLat,
+            lon: itemLon,
+            distancia
+          };
+        });
+
+        locais.sort((a, b) => a.distancia - b.distancia);
+        localStorage.setItem('resultados', JSON.stringify(locais));
+
+        locais.forEach(loc => {
+          const li = document.createElement('li');
+          const button = document.createElement('button');
+          button.classList.add('escolinha-button');
+
+          const nomeDiv = document.createElement('div');
+          nomeDiv.classList.add('nome-escola');
+          nomeDiv.textContent = loc.nome;
+
+          const distanciaDiv = document.createElement('div');
+          distanciaDiv.classList.add('distancia-escola');
+          distanciaDiv.textContent = `${(loc.distancia / 1000).toFixed(2)} km`;
+
+          button.appendChild(nomeDiv);
+          button.appendChild(distanciaDiv);
+
+          button.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const enderecoDiv = document.getElementById('endereco-escolinha');
+            if (!enderecoDiv) return;
+            enderecoDiv.style.display = 'block';
+            enderecoDiv.textContent = 'Carregando endereço...';
+
+            try {
+              const resp = await fetch(
+                `https://us1.locationiq.com/v1/reverse.php?key=${API_KEY}&lat=${loc.lat}&lon=${loc.lon}&format=json`
+              );
+
+              if (!resp.ok) {
+                enderecoDiv.textContent = 'Erro ao obter o endereço.';
+                return;
+              }
+
+              const data = await resp.json();
+              const enderecoFormatado = limparEndereco(data.display_name || '');
+              enderecoDiv.textContent = `Endereço: ${enderecoFormatado}`;
+            } catch {
+              enderecoDiv.textContent = 'Erro ao obter o endereço.';
+            }
+          });
+
+          li.appendChild(button);
+          resultados.appendChild(li);
+        });
+
+      } catch (error) {
+        console.error('Erro na busca de escolinhas:', error);
+        resultados.innerHTML = '<li>Erro ao buscar escolinhas. Tente novamente.</li>';
+      } finally {
+        if (btnGps) btnGps.classList.remove('loading');
+      }
+    },
+    (error) => {
+      console.error('Erro de geolocalização:', error);
+      if (btnGps) btnGps.classList.remove('loading');
+      
+      let mensagem = 'Não foi possível obter sua localização.';
+      
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          mensagem = 'Permissão de localização negada. Ative nas configurações do dispositivo.';
+          break;
+        case error.POSITION_UNAVAILABLE:
+          mensagem = 'Localização indisponível. Verifique se o GPS está ativado.';
+          break;
+        case error.TIMEOUT:
+          mensagem = 'Tempo esgotado ao obter localização. Tente novamente.';
+          break;
+      }
+      
+      app.dialog.alert(mensagem, 'Erro de Localização');
+      resultados.innerHTML = `<li>${mensagem}</li>`;
+    },
+    geoOptions
+  );
+}
+
 // ---------------- CONFIGURAÇÕES INICIAIS ----------------
 document.addEventListener('DOMContentLoaded', () => {
   const esporte = localStorage.getItem('esporteSelecionado') || '';
