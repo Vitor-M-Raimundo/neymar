@@ -1,0 +1,42 @@
+.email-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #FF6600;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.email-container h2 {
+    color: white;
+}
+
+.email-container p {
+    color: white;
+    font-size: 16px;
+}
+
+.email-container .btn {
+    display: inline-block;
+    background-color: white;
+    color: #FF6600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.email-container .btn:hover {
+    background-color: #FF9933;
+    color: white;
+}
+
+.email-container .link {
+    color: white;
+    font-size: 14px;
+    margin-top: 20px;
+}

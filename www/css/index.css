@@ -1,0 +1,802 @@
+:root {
+    --branco: #fff;
+    --gelo: #f1f1f1;
+    --preto: #2a2a2a;
+    --laranja: #f86100;
+    --transparente: #ffffff00;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--laranja);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 1.5s ease 2s forwards;
+}
+
+.splash-logo {
+    width: 350px;
+    height: auto;
+    animation: scaleLogo 1.2s ease-in-out;
+}
+
+@keyframes scaleLogo {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+body {
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: var(--transparente);
+}
+
+.page-content {
+    background-color: var(--gelo);
+}
+
+.toolbar {
+    height: 80px;
+}
+
+.tab-link {
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    margin-left: 2%;
+    margin-right: 1%;
+}
+
+.toolbar-inner .link {
+    flex: 1;
+    height: 80px;
+    line-height: 20px;
+    font-weight: bold;
+    background-color: var(--laranja);
+    color: var(--branco);
+    border: none;
+    border-radius: 22px;
+    width: 90px;
+    height: 55px;
+}
+
+.toolbar-inner {
+    background-color: var(--branco);
+    border-top: 1px solid var(--gelo);
+}
+
+.toolbar-inner span {
+    font-size: 10px;
+}
+
+.toolbar-inner .link:not(.active) {
+    color: gray;
+    font-weight: normal;
+    background-color: var(--branco);
+}
+
+.toolbar-inner>.link i {
+    font-size: 20px;
+}
+
+.top-nav {
+    width: 100%;
+    height: 70px;
+    background: var(--laranja);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%;
+}
+
+.logo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 1%;
+    /* distância entre logo e título */
+}
+
+.logo-titulo img {
+    width: 50%;
+    height: auto;
+    margin-top: 3px;
+    margin-left: 10px;
+}
+
+.top-nav2 {
+    width: 100%;
+    height: 80px;
+    background: var(--laranja);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-logo {
+    font-weight: 600;
+    margin-left: 5%;
+    color: var(--branco);
+}
+
+.title-logo2 {
+    font-weight: 600;
+    font-size: 20px;
+    left: 50%;
+    color: var(--branco);
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+.navbar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 5%;
+    gap: 10px;
+}
+
+.navbar-btn2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 5%;
+}
+
+.btn-config {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--branco);
+}
+
+.btn-noti {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5%;
+    font-size: 24px;
+    color: var(--branco);
+}
+
+.btn-noti::before {
+    content: attr(datacount);
+    background: red;
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--branco);
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    margin-right: 5%;
+}
+
+.btn-noti[datacount="0"]::before {
+    display: none;
+}
+
+.btn-voltar {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: var(--branco);
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #ffffff00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-fluid {
+    max-width: 100%;
+}
+
+.block {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 6%;
+    margin-top: 6%;
+}
+
+.divisoria {
+    border-top: 2px solid #e4e3e3;
+}
+
+.btn-home {
+    padding: 5px;
+    height: 18%;
+    align-items: center;
+    margin-top: 6%;
+    margin-bottom: 6%;
+}
+
+.btn-home a {
+    margin-bottom: 6%;
+    border-radius: 20px;
+    margin-left: 8%;
+    width: 78%;
+    text-align: left;
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: #e6e3e3;
+    border: none;
+    font-weight: 300;
+    display: block;
+    padding: 10px;
+    color: #44444a;
+    text-decoration: none;
+    font-size: 17px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-home a:active {
+    background-color: #d4d4d4;
+    transform: scale(0.97);
+    transition: transform 0.1s ease, background-color 0.1s ease;
+}
+
+.btn-icone {
+    align-items: center;
+    justify-content: center;
+    font-weight: 1000;
+    font-size: 17px;
+    color: #44444a;
+}
+
+.sport-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.sport-button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--branco);
+    color: black;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.sport-button.selected {
+    background-color: var(--laranja);
+    color: white;
+}
+
+#goToEscolinhas {
+    margin-top: 30px;
+    display: none;
+    text-align: center;
+}
+
+#goToEscolinhas a {
+    color: var(--laranja);
+    text-decoration: none;
+    font-weight: bold;
+    right: 6vw;
+    bottom: 12vh;
+    position: fixed;
+    font-size: 18px;
+}
+
+.config-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    background-color: #ffffff;
+    color: #666666;
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom: 2px solid #ccc;
+    transition: background 0.2s;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.config-list-item:hover {
+    background-color: #f5f5f5;
+}
+
+.left-group {
+    display: flex;
+    align-items: center;
+}
+
+.config-icon {
+    font-size: 20px;
+    margin-right: 12px;
+    color: #999999;
+}
+
+.config-text {
+    color: #666666;
+}
+
+.config-arrow {
+    font-size: 30px;
+    color: #444444;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.btn-treino {
+    height: 18%;
+    align-items: center;
+    margin-top: 6%;
+    margin-bottom: 6%;
+}
+
+.btn-treino a {
+    margin-bottom: 2%;
+    border-radius: 20px;
+    width: 90%;
+    text-align: left;
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: #e6e3e3;
+    border: none;
+    font-weight: 300;
+    display: block;
+    padding: 20px;
+    color: #44444a;
+    text-decoration: none;
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-treino a:active {
+    background-color: #d4d4d4;
+    transform: scale(0.97);
+    transition: transform 0.1s ease, background-color 0.1s ease;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Training block */
+.training-block {
+    padding: 30px 20px;
+    margin: 0;
+}
+
+/* Training cards */
+.training-card {
+    background: #fff;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.training-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b35, #f7931e);
+}
+
+.training-card:hover,
+.training-card:active {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 15px;
+}
+
+/* Card icons */
+.card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.functional-icon {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+.fundamentals-icon {
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+}
+
+/* Card info */
+.card-info {
+    flex: 1;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+/* Progress container */
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+    position: relative;
+}
+
+.functional-progress {
+    background: linear-gradient(90deg, #4CAF50, #45a049);
+    width: 55%;
+}
+
+.fundamentals-progress {
+    background: linear-gradient(90deg, #2196F3, #1976D2);
+    width: 35%;
+}
+
+/* Shimmer effect */
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.progress-text {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+    min-width: 35px;
+}
+
+/* Play button */
+.play-button {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    flex-shrink: 0;
+}
+
+.play-button:hover,
+.play-button:active {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+}
+
+.play-button i {
+    margin-left: 2px;
+    /* Ajuste visual para centralizar o ícone */
+}
+
+/*----------------------------------------------------------------*/
+
+.training-block {
+    padding: 30px 20px;
+    margin: 0;
+    max-width: 400px;
+}
+
+/* Training cards */
+.training-card {
+    background: #fff;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.training-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b35, #f7931e);
+}
+
+.training-card:hover,
+.training-card:active {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.training-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 20px 15px 20px;
+    gap: 15px;
+}
+
+/* Card icons */
+.card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.functional-icon {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+.fundamentals-icon {
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+}
+
+.strength-icon {
+    background: linear-gradient(135deg, #E91E63, #C2185B);
+}
+
+/* Card info */
+.card-info {
+    flex: 1;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.card-category {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.play-button {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    flex-shrink: 0;
+}
+
+.play-button:hover,
+.play-button:active {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+}
+
+.play-button i {
+    margin-left: 2px;
+}
+
+/* Training details */
+.training-details {
+    padding: 0 20px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.detail-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.detail-label {
+    font-size: 11px;
+    color: #666;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+.detail-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Estilos para o bloco de boas-vindas */
+.welcome-block {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.welcome-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome-text {
+    flex: 1;
+}
+
+.welcome-text h2 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--preto);
+}
+
+.welcome-subtitle {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 16px;
+}
+
+.profile-photo-link {
+    text-decoration: none;
+}
+
+.welcome-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--laranja);
+}
+
+.welcome-photo:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}

@@ -1,0 +1,153 @@
+/* Sheet Modal */
+#sheetAlunos {
+  --f7-sheet-bg-color: #fff;
+  --f7-sheet-box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 15px 15px 0 0;
+  box-shadow: var(--f7-sheet-box-shadow);
+  background: var(--f7-sheet-bg-color);
+}
+
+/* Conteúdo interno scrollável */
+#sheetAlunos .sheet-modal-inner {
+  max-height: 50vh;
+  overflow-y: auto;
+  padding: 20px;
+  text-align: center;
+  background-color: var(--f7-sheet-bg-color);
+  border: none;
+  margin-top: -5px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Ajusta a altura do sheet-modal */
+.sheet-modal {
+  height: auto !important;
+}
+
+/* Estilo de títulos dentro do modal */
+#sheetAlunos h3 {
+  margin-bottom: 15px;
+  margin-top: 0px;
+  text-align: center;
+}
+
+/* Botões dentro do modal */
+#sheetAlunos .button {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.espacamento {
+  margin-top: 1%;
+}
+
+/* Container principal de alunos */
+#alunos-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+  gap: 10px;
+}
+
+/* Itens de aluno */
+#sheetAlunos .solicitacao-item {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-top: 2%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Container da foto, nome e botão */
+#sheetAlunos .prof-actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Grupo foto + nome */
+#sheetAlunos .prof-info {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+/* Foto do aluno */
+#sheetAlunos .prof-foto {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  border: 2px solid #f86100;
+}
+
+/* Nome do aluno */
+#sheetAlunos .prof-nome {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Botões dentro do modal */
+#sheetAlunos .alunos-botoes {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaçamento entre os botões */
+}
+
+/* Botão com ícone de deletar */
+#sheetAlunos .btn-deletar {
+  background: none !important; /* Remove o fundo */
+  border: none !important; /* Remove a borda */
+  box-shadow: none !important; /* Remove qualquer sombra */
+  cursor: pointer;
+  color: #000000 !important; /* Cor padrão do botão de deletar */
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease; /* Transição suave */
+}
+
+#sheetAlunos .btn-deletar:hover {
+  color: #d32f2f !important; /* Cor vermelha mais escura ao passar o mouse */
+}
+
+#sheetAlunos .btn-deletar i {
+  font-size: 20px; /* Tamanho do ícone */
+}
+
+/* Botão com ícone de chat */
+#sheetAlunos .btn-chat {
+  background: none !important; /* Remove o fundo */
+  border: none !important; /* Remove a borda */
+  box-shadow: none !important; /* Remove qualquer sombra */
+  cursor: pointer;
+  color: #f86100; /* Cor padrão do botão de chat */
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease; /* Transição suave */
+}
+
+#sheetAlunos .btn-chat i {
+  font-size: 20px; /* Tamanho do ícone */
+}

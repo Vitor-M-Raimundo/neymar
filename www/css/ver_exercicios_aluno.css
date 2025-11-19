@@ -1,0 +1,447 @@
+.page-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 150px !important; /* Aumentado para garantir espaço */
+}
+
+/* Info Card do Treino */
+.treino-info-card {
+    background: white;
+    border-radius: 15px;
+    padding: 16px;
+    margin: 15px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.treino-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.treino-info-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+}
+
+.treino-info-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 0;
+}
+
+/* Observações */
+.observacoes-box {
+    background: #fff9f6;
+    border-left: 4px solid #f86100;
+    padding: 12px 16px;
+    margin: 0 20px 15px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1f2937;
+}
+
+.observacoes-box i {
+    color: #f86100;
+    margin-right: 8px;
+}
+
+/* Lista de Exercícios */
+.exercicios-lista {
+    padding: 0 20px 20px 20px; /* Adiciona padding inferior */
+    margin-bottom: 100px; /* Adiciona margem inferior */
+}
+
+.exercicio-card {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: white;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.exercicio-card.concluido {
+    background: #f8f9fa;
+    opacity: 0.8;
+}
+
+.exercicio-left {
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exercicio-ordem {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #f1f5f9;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.exercicio-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.exercicio-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.exercicio-titulo {
+    font-weight: 700;
+    color: #1f2937;
+    font-size: 15px;
+    flex: 1;
+}
+
+/* Botão Editar Exercício */
+.btn-edit-exercicio {
+    background: transparent;
+    border: 2px solid #3b82f6;
+    color: #3b82f6;
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+}
+
+.btn-edit-exercicio:hover {
+    background: #3b82f6;
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn-edit-exercicio i {
+    font-size: 18px;
+}
+
+/* Badges */
+.exercicio-badges {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: #fff9f6;
+    border: 1px solid #ffe8d6;
+    color: #f56a00;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.peso-badge {
+    background: #f6f6ff;
+    color: #6b21a8;
+    border-color: #e9d5ff;
+}
+
+/* Checkbox Personalizado */
+.exercicio-box-concluido {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.exercicio-box-concluido input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-visual {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid #f3a57a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #fff;
+    transition: all 0.2s;
+}
+
+.exercicio-card.concluido .checkbox-visual {
+    background: linear-gradient(180deg, #ff884d, #f86100);
+    border-color: transparent;
+    box-shadow: 0 6px 18px rgba(248, 97, 0, 0.28);
+}
+
+.checkbox-visual i {
+    font-size: 20px;
+}
+
+/* Observações Mini */
+.exercicio-actions-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.observacoes-mini {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #f59e0b;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.observacoes-mini i {
+    font-size: 18px;
+    color: #f59e0b;
+    flex-shrink: 0;
+}
+
+.observacoes-mini .obs-text {
+    flex: 1;
+    word-break: break-word;
+    display: flex;
+    align-items: center;
+}
+
+/* Botão Play */
+.btn-play {
+    background: transparent;
+    border: none;
+    color: #f86100;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+}
+
+.btn-play i {
+    font-size: 20px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.empty-state i {
+    font-size: 64px;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.empty-state p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Loading */
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+/* Badges de tipo */
+.tipo-badge {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.tipo-hipertrofia {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.tipo-cardio {
+    background: #e8f5e8;
+    color: #388e3c;
+}
+
+.tipo-forca {
+    background: #fce4ec;
+    color: #c2185b;
+}
+
+.tipo-funcional {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
+/* Professor Info Card (Resumo do Treino) */
+.professor-info-card {
+    background: white;
+    border-radius: 15px;
+    padding: 14px;
+    margin: 0 20px 15px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    gap: 12px;
+    transition: transform 0.2s ease;
+}
+
+/* Progress Section */
+.progress-section {
+    display: flex;
+    margin-top: 12px;
+    width: 100%;
+    align-items: center;
+    gap: 12px;
+}
+
+.progress-track {
+    background: #f1f5f9;
+    border-radius: 6px;
+    height: 10px;
+    overflow: hidden;
+    flex: 1;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff7a3d 0%, #f86100 100%);
+    border-radius: 6px;
+    transition: width 300ms ease;
+}
+
+.progress-text {
+    min-width: 44px;
+    color: #f86100;
+    font-weight: 700;
+    font-size: 13px;
+    text-align: right;
+}
+
+/* Botão Finalizar Treino */
+.finalizar-wrap {
+    position: fixed;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    padding: 16px 20px;
+    z-index: 900;
+}
+
+.finalizar-btn {
+    width: 100%;
+    background: #f86100;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(248, 97, 0, 0.3);
+}
+
+.finalizar-btn:hover {
+    background: #e75000;
+    transform: translateY(-2px);
+}
+
+.finalizar-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(231, 80, 0, 0.3);
+}
+
+.finalizar-btn i {
+    font-size: 20px;
+}
+
+.finalizar-btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.finalizar-btn.loading::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-left: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .exercicio-card {
+        margin: 10px 12px;
+        padding: 12px;
+    }
+    
+    .checkbox-visual {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .exercicio-ordem {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+    
+    .treino-info-card {
+        margin: 15px;
+        padding: 14px;
+    }
+}

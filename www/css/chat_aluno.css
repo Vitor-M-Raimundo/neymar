@@ -1,0 +1,254 @@
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root {
+  --brand: #f86100;
+  --primary: #2196f3;
+  --bg: #ffffff;
+  --text: #111;
+  --muted: #666;
+  --border: #e6e6e6;
+  --bubble-left: #d9d9d9;
+  --bubble-right: var(--brand);
+  --bubble-right-text: #fff;
+}
+
+/* Página em coluna ocupando a viewport */
+.page.chat-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+/* Conteúdo com flex e sem cortar filhos */
+.page.chat-page .page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+/* Top navbar (agora com avatar, nome, email e escolinha) */
+.top-nav {
+  background: var(--brand);
+  color: #fff;
+  min-height: 56px;       /* permite crescer conforme conteúdo */
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.top-nav .back-button {
+  color: #fff;
+  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+.top-nav .right-actions { width: 36px; height: 36px; }
+
+/* Título do topo com avatar + blocos de texto */
+.top-nav .top-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 auto;
+  min-width: 0;           /* habilita ellipsis */
+}
+.top-nav .top-title .prof-foto {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.65);
+  flex: 0 0 auto;
+}
+.top-nav .top-title .top-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.top-nav .top-title .top-meta .name {
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.top-nav .top-title .top-meta .email,
+.top-nav .top-title .top-meta .school {
+  display: inline;
+  font-size: 12px;
+  line-height: 1.2;
+  color: rgba(255,255,255,0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70vw; /* evita quebrar layout */
+}
+.top-nav .top-title .top-meta .email:empty,
+.top-nav .top-title .top-meta .school:empty { display: none; }
+/* separador entre email e escola quando ambos existem */
+.top-nav .top-title .top-meta .email:not(:empty) + .school:not(:empty)::before {
+  content: " • ";
+  opacity: 0.9;
+}
+
+/* Cabeçalho do contato (não usado se tudo foi para a navbar, mantido por compatibilidade) */
+.info-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+  flex-shrink: 0;
+}
+.prof-foto {
+  width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--brand);
+}
+.info-text .name { font-weight: 700; font-size: 16px; color: var(--text); }
+.info-text .email,
+.info-text .school,
+.info-text .email-line,
+.info-text .school-line { font-size: 12px; color: var(--muted); }
+
+/* Área do chat */
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Lista de mensagens (rola aqui) */
+.messages {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 10px 0 4px 0;  /* sem padding lateral para encostar nas bordas */
+  background: #fafafa;
+}
+
+/* Neutraliza margens/paddings padrão e força layout em grid (hora abaixo) */
+.messages .message {
+  width: 100% !important;
+  margin: 6px 0 !important;
+  margin-left: 25% !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  display: grid !important;
+  grid-auto-rows: auto;
+  justify-items: start; /* default: esquerda */
+}
+
+/* Alinhamento: enviadas à direita, recebidas à esquerda */
+.messages .message.me    { justify-items: end !important; }
+.messages .message.other { justify-items: start !important; }
+
+.message .bubble {
+  max-width: 92%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  line-height: 1.35;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+
+/* Encosta cada bolha no seu lado (sem “vão” grande) */
+.message.other .bubble {
+  background: var(--bubble-left);
+  color: var(--text);
+  border-top-left-radius: 4px;
+  margin-left: -30% !important;     /* encosta na esquerda */
+  margin-right: auto !important;
+}
+.message.me .bubble {
+  background: var(--bubble-right);
+  color: var(--bubble-right-text);
+  border-top-right-radius: 4px;
+  margin-left: auto !important;
+  margin-right: 0 !important;    /* encosta na direita */
+}
+
+/* Hora sempre abaixo da bolha, alinhada ao mesmo lado */
+.message .time {
+  font-size: 11px;
+  color: #7a7a7a;
+  margin-top: 4px;
+  opacity: .8;
+}
+.message.me .time    { justify-self: end; margin-right: 0; }
+.message.other .time { justify-self: start; margin-left: -25%; }
+
+/* Barra de input (sempre visível) */
+.chat-input {
+  display: flex !important;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid var(--border);
+  background: #fff;
+  flex-shrink: 0;
+}
+.chat-input input,
+.chat-input input[disabled] {
+  flex: 1;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+  color: var(--text);
+}
+.chat-input input:disabled { opacity: .7; }
+.chat-input input:focus { border-color: none; box-shadow: 0 0 0 3px rgba(33,150,243,0.08); }
+.chat-input .button,
+.chat-input .button[disabled] {
+  height: 42px;
+  width: 42px;
+  padding: 0 16px;
+  background: var(--primary);
+  color: #fff;
+  background-color: #f86100;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-input .send-btn {
+  width: 42px;
+  min-width: 42px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.chat-input .send-btn i {
+  font-size: 20px;
+  line-height: 1;
+  color: #fff;
+}
+
+/* Telas estreitas */
+@media (max-width: 360px) {
+  .message .bubble { max-width: 88%; }
+}

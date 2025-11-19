@@ -1,0 +1,492 @@
+:root {
+    --branco: #fff;
+    --gelo: #f1f1f1;
+    --preto: #2a2a2a;
+    --laranja: #f86100;
+}
+
+/* Corpo */
+body {
+    background-color: var(--gelo);
+    margin: 0;
+    padding: 0;
+}
+
+/* Conteúdo genérico */
+.page-content {
+    box-sizing: border-box;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Header fixo (cubra possíveis classes usadas) */
+.top-nav,
+.top-nav2 {
+    width: 100%;
+    height: 80px;
+    background: var(--laranja);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.title-logo2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--branco);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Blocos */
+.block {
+    background-color: var(--branco);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin: 16px auto 10px auto;
+    max-width: 400px;
+    width: 90%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Buscar Aluno */
+.page[data-name="perfil_prof"] .block.buscar-aluno {
+    padding: 10px 8px;
+    margin: 8px auto 10px auto !important;
+    max-width: 400px;
+    width: 90%;
+    box-sizing: border-box;
+    min-height: 195px;
+    height: 195px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.page[data-name="perfil_prof"] .block.buscar-aluno h3 {
+    font-size: 16px;
+    margin-bottom: -20px;
+}
+
+.page[data-name="perfil_prof"] .block.buscar-aluno input {
+    font-size: 14px;
+    padding: 6px;
+    margin-bottom: 6px;
+}
+
+.page[data-name="perfil_prof"] .block.buscar-aluno .button-fill {
+    margin-top: 10px;
+    padding: 10px 16px;
+}
+
+/* Títulos / textos */
+.block h2 {
+    font-size: 20px;
+    color: var(--preto);
+    margin-bottom: 8px;
+}
+
+.block p {
+    font-size: 16px;
+    color: #444;
+}
+
+/* Foto perfil */
+.foto-container {
+    position: relative;
+    width: 100px;
+    margin: 0 auto 8px auto !important;
+}
+
+.foto-perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Upload foto */
+.input-arquivo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.botao-upload {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    background-color: var(--laranja);
+    color: #fff;
+    font-size: 18px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Botões */
+#uploadFotoprofForm button {
+    margin: 12px auto 0 auto;
+    padding: 12px 16px;
+    width: 50%;
+    max-width: 400px;
+    background-color: var(--laranja);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color .3s;
+}
+
+#uploadFotoForm button,
+.button.button-fill {
+    margin: 12px auto 0 auto;
+    padding: 12px 16px;
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--laranja);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color .3s;
+}
+
+#uploadFotoForm button:hover,
+#uploadFotoprofForm button:hover,
+.button.button-fill:hover {
+    background-color: #e75000;
+}
+
+#uploadFotoForm button:active,
+#uploadFotoprofForm button:active,
+.button.button-fill:active {
+    background-color: #d64500;
+}
+
+.btnEditar,
+#btnEditarProf {
+    margin: 12px auto 0 auto;
+    padding: 12px 18px;
+    width: 60%;
+    max-width: 320px;
+    background-color: var(--laranja);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background-color .25s, transform .15s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btnEditar:hover,
+#btnEditarProf:hover {
+    background-color: #e75000;
+}
+
+.btnEditar:active,
+#btnEditarProf:active {
+    background-color: #d64500;
+    transform: scale(.97);
+}
+
+.btnEditar:focus-visible,
+#btnEditarProf:focus-visible {
+    outline: 2px solid #ffb38a;
+    outline-offset: 3px;
+}
+
+/* Inputs genéricos */
+.item-input-wrap input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Divisória */
+.divisoria {
+    border-top: 2px solid #e4e3e3;
+    margin-bottom: 2px;
+    margin-top: 30px !important;
+}
+
+/* Responsivo */
+@media (max-width: 360px) {
+    .title-logo2 { font-size: 18px; }
+    .block h2 { font-size: 18px; }
+    .block p { font-size: 14px; }
+    .page[data-name="perfil_prof"] .block.buscar-aluno h3 { font-size: 15px; }
+    .page[data-name="perfil_prof"] .block.buscar-aluno input { font-size: 13px; padding: 5px; }
+    .page[data-name="perfil_prof"] .block.buscar-aluno .button-fill { padding: 10px; }
+    .btnEditar, #btnEditarProf { width: 80%; font-size: 15px; }
+}
+
+/* Toolbar */
+.toolbar-inner {
+    position: static;
+    width: 100%;
+    background-color: var(--branco);
+    border-top: 1px solid var(--gelo);
+    z-index: 1000;
+}
+
+.toolbar-inner .link {
+    flex: 1;
+    height: 55px;
+    line-height: 20px;
+}
+
+.toolbar-inner .link:not(.active) {
+    color: gray;
+    font-weight: normal;
+}
+
+.toolbar-inner > .link i {
+    font-size: 20px;
+}
+
+/* Swiper */
+.mySwiper_prof {
+    width: 100%;
+    height: auto;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+}
+
+.mySwiper_prof .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.mySwiper_prof .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mySwiper_prof .swiper-slide .block {
+    margin-bottom: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+    width: 90%;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+/* Botão-aluno */
+.block.botao-aluno {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    min-height: 195px;
+    height: 195px;
+    max-width: 400px;
+    width: 100%;
+    padding: 8px 0;
+    transition: box-shadow .2s;
+    border: 2px solid transparent;
+    background: #fff;
+    box-sizing: border-box;
+    margin-top: 8px !important;
+}
+
+.block.botao-aluno img {
+    width: 100px;
+    height: 100px;
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.block.botao-aluno .hover-aluno {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    inset: 0;
+    background: rgba(44,44,44,0.92);
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none !important;
+    transition: opacity .2s;
+    border-radius: 12px;
+    z-index: 2;
+}
+
+.block.botao-aluno:active .hover-aluno,
+.block.botao-aluno:hover .hover-aluno {
+    opacity: .30;
+}
+
+.block.botao-aluno:active,
+.block.botao-aluno:hover {
+    box-shadow: 0 0 0 2px var(--laranja);
+    border-color: var(--laranja);
+}
+
+.img-fluid {
+    max-width: 100%;
+}
+
+/* Botão deletar */
+.alunos-botoes .btn-deletar {
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--laranja);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    margin-left: 8px;
+}
+
+.alunos-botoes .btn-deletar:hover {
+    background: #e75000;
+    transform: scale(1.1);
+}
+
+.alunos-botoes .btn-deletar i {
+    font-size: 22px;
+    pointer-events: none;
+}
+
+/* List reset */
+.list,
+.list ul,
+.list li,
+.list .item-content,
+.list .item-inner,
+.list .item-input,
+.list .item-input-wrap {
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    border: none !important;
+}
+
+.list ul:before,
+.list ul:after,
+.list .item-inner:after,
+.list .item-content:after {
+    display: none !important;
+}
+
+.list .item-input-wrap input {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+.list .item-input-wrap select {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+.list .item-input-wrap textarea {
+    width: 100%;
+    height: 100px;
+    padding: 0 16px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+.item-input input::placeholder,
+.item-input select::placeholder,
+.item-input textarea::placeholder {
+    color: #999;
+}
+
+.title-input {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Toolbar fixa */
+.toolbar-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: #fff;
+}
+
+/* Espaço estável inferior */
+.view-main .page-current .page-content {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0) + 56px);
+}
+
+/* Mesmo padding com teclado aberto */
+.keyboard-open .view-main .page-current .page-content {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0) + 56px) !important;
+}

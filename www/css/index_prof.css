@@ -1,0 +1,120 @@
+/* Estilos mínimos necessários para o bloco de boas-vindas do professor */
+
+:root {
+    --branco: #fff;
+    --gelo: #f1f1f1;
+    --preto: #2a2a2a;
+    --laranja: #f86100;
+}
+
+/* Mantém o fundo do conteúdo */
+.page-content {
+    background-color: var(--gelo);
+}
+
+/* Estilos para o bloco de boas-vindas */
+.welcome-block {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: transparent;
+}
+
+.welcome-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome-text {
+    flex: 1;
+}
+
+.welcome-text h2 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--preto);
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.welcome-subtitle {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 16px;
+}
+
+.profile-photo-link {
+    text-decoration: none;
+}
+
+.welcome-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--laranja);
+}
+
+.welcome-photo:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+/* ===========================
+   Bloco de Atalhos / Summary
+   =========================== */
+
+.summary-block {
+    padding: 12px 16px;
+    margin-bottom: 16px;
+}
+
+.summary-cards {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.summary-card {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 140px;
+    background: var(--branco);
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+
+.summary-card i {
+    font-size: 20px;
+    color: var(--laranja);
+    width: 28px;
+    text-align: center;
+}
+
+.summary-card .label {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.summary-card .sub {
+    font-size: 12px;
+    color: #666;
+    margin-top: 2px;
+}
+
+@media (max-width: 480px) {
+    .summary-card {
+        flex: 1 1 100%;
+    }
+}

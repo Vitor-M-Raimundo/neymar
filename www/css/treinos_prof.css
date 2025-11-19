@@ -1,0 +1,447 @@
+/* ========================================
+   BARRA DE BUSCA
+   ======================================== */
+
+.search-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 0 auto 24px auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 600px;
+    width: 100%;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 16px 50px 16px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    color: #334155;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.search-input::placeholder {
+    color: #64748b;
+}
+
+.search-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    font-size: 1.2rem;
+}
+
+/* ========================================
+   LISTA DE ALUNOS
+   ======================================== */
+
+#listaAlunos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.aluno-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.4s ease-out;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 8px;
+    gap: 16px;
+}
+
+.aluno-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 1);
+}
+
+.aluno-foto {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #f86100;
+    transition: all 0.3s ease;
+    margin-right: 12px;
+}
+
+.aluno-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.aluno-card:hover .aluno-foto {
+    transform: scale(1.05);
+    border-color: #3b82f6;
+}
+
+.aluno-card:hover .aluno-foto img {
+    transform: scale(1.1);
+}
+
+.aluno-info {
+    flex: 1;
+    text-align: left;
+}
+
+.aluno-nome {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.aluno-email {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.aluno-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* ========================================
+   BOTÕES DE AÇÃO
+   ======================================== */
+
+.btn-action {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-adicionar {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+}
+
+.btn-adicionar:hover {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
+}
+
+.btn-ver {
+    background: #f86100;
+    color: white;
+}
+
+.btn-ver:hover {
+    background: #f86100;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-action i {
+    font-size: 1rem;
+}
+
+/* ========================================
+   ESTADO VAZIO E ERRO
+   ======================================== */
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.empty-state i {
+    font-size: 4rem;
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    color: #1e293b;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.empty-state p {
+    color: #64748b;
+    font-size: 1rem;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+/* ========================================
+   BOTÕES GERAIS
+   ======================================== */
+
+.button {
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+}
+
+.button-fill {
+    background: #f86100;
+    color: white;
+}
+
+.button-fill:hover {
+    background: #f86100;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.button-outline {
+    background: transparent;
+    color: #f86100;
+    border: 2px solid #f86100;
+}
+
+.button-outline:hover {
+    background: #f86100;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   ANIMAÇÕES
+   ======================================== */
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Delay nas animações dos cards */
+.aluno-card:nth-child(1) { animation-delay: 0.1s; }
+.aluno-card:nth-child(2) { animation-delay: 0.2s; }
+.aluno-card:nth-child(3) { animation-delay: 0.3s; }
+.aluno-card:nth-child(4) { animation-delay: 0.4s; }
+.aluno-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .page-content {
+        padding: 16px;
+    }
+    
+    .search-container {
+        max-width: 400px;
+    }
+    
+    #listaAlunos {
+        max-width: 400px;
+        padding: 0;
+    }
+    
+    .aluno-card {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        text-align: left;
+        padding: 16px;
+        max-width: 400px;
+    }
+    
+    .aluno-foto {
+        width: 50px;
+        height: 50px;
+        margin-right: 12px;
+        margin-bottom: 0;
+    }
+    
+    .aluno-info {
+        text-align: left;
+        width: auto;
+        flex: 1;
+    }
+    
+    .aluno-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        width: auto;
+    }
+    
+    .btn-action {
+        flex: 0;
+        min-width: 80px;
+        justify-content: center;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+    }
+    
+    .search-input {
+        padding: 14px 45px 14px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-content {
+        padding: 12px;
+    }
+    
+    .search-container {
+        max-width: 100%;
+        margin: 0 auto 20px auto;
+    }
+    
+    #listaAlunos {
+        max-width: 100%;
+    }
+    
+    .page-header,
+    .search-container {
+        padding: 16px;
+    }
+    
+    .aluno-card {
+        padding: 12px;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .aluno-foto {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    
+    .aluno-info {
+        flex: 1;
+        text-align: left;
+    }
+    
+    .aluno-nome {
+        font-size: 1rem;
+        margin-bottom: 2px;
+    }
+    
+    .aluno-actions {
+        flex-direction: column;
+        gap: 6px;
+        width: auto;
+    }
+    
+    .btn-action {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+        min-width: 70px;
+    }
+}
+
+
+/* ========================================
+   LOADING STATES
+   ======================================== */
+
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}

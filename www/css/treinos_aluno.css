@@ -1,0 +1,177 @@
+.professores-list {
+    margin-top: 16px;
+}
+
+.professores-list .item-link {
+    padding: 12px 16px;
+    background-color: #fff;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+.professores-list .item-link:active {
+    transform: scale(0.98);
+}
+
+.professores-list .item-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.professores-list .item-title {
+    font-size: 18px;
+    color: #333;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.professores-list .item-after i {
+    font-size: 24px;
+    color: var(--laranja);
+}
+
+.professor-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 32px 16px;
+    color: #666;
+}
+
+.empty-state i {
+    font-size: 48px;
+    color: #999;
+    margin-bottom: 16px;
+}
+
+.empty-state h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.empty-state p {
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.item-link .item-inner {
+    padding-right: 35px;
+}
+
+.item-link .item-media {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.item-subtitle {
+    font-size: 13px;
+    color: #666;
+}
+
+/* Search bar styles */
+.searchbar-container {
+    padding: 8px 16px;
+    background: #fff;
+    margin-bottom: 16px;
+}
+
+.searchbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.searchbar input {
+    width: 100%;
+    padding: 12px 16px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.searchbar input:focus {
+    border-color: var(--laranja);
+}
+
+.searchbar-icon {
+    position: absolute;
+    left: 12px;
+    color: #999;
+    font-size: 20px;
+}
+
+/* Search Bar Styles */
+.search-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 16px 50px 16px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    color: #334155;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.search-input::placeholder {
+    color: #64748b;
+}
+
+.search-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    font-size: 1.2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .search-input {
+        padding: 14px 45px 14px 16px;
+    }
+    
+    .search-container {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-container {
+        padding: 12px;
+    }
+}
+
+.page-content {
+    padding-bottom: 80px !important;
+}

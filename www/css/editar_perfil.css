@@ -1,0 +1,331 @@
+:root {
+  --branco: #fff;
+  --gelo: #f1f1f1;
+  --preto: #000000;
+  --laranja: #f86100;
+  --borda: #e6e6e6;
+  --texto-sec: #555;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  --ring: 0 0 0 3px rgba(248, 97, 0, 0.18);
+}
+
+/* Não altera outras páginas; este CSS só é carregado nas telas de edição */
+.page-content {
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* Header fixo das páginas de edição */
+.top-nav2 {
+  width: 100%;
+  height: 80px;
+  background: var(--laranja);
+  color: var(--branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.title-logo2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--branco);
+}
+
+/* Botão voltar */
+.navbar-btn {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(2px);
+}
+
+/* Fallback visual (JS ajusta depois) */
+.page[data-name="editar_aluno"] .page-content,
+.page[data-name="editar_prof"] .page-content {
+  padding-top: 80px;            /* altura do header */
+  padding-bottom: 56px;         /* altura padrão da tabbar */
+  background: var(--gelo);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  scroll-padding-top: 80px;
+  scroll-padding-bottom: 64px;
+}
+
+/* Igualar comportamento ao professor (sem empurrar para baixo do header) */
+.page[data-name="editar_aluno"] .foto-container {
+  margin: 10px auto 8px auto !important;
+  margin-top: -17% !important;
+}
+
+/* Travar qualquer rolagem no aluno (se algum inline style trocar overflow-y) */
+.page[data-name="editar_aluno"] .page-content {
+  position: absolute;
+  top: 80px;
+  left: 0; right: 0;
+  bottom: 56px;
+  height: calc(100vh - 80px - 56px);
+  overflow: hidden !important;
+  padding-top: 0;
+  padding-bottom: 56px;
+  -webkit-overflow-scrolling: auto;
+  touch-action: none;
+}
+
+/* Avatar */
+.foto-container {
+  position: relative;
+  width: 140px;
+  margin: 10px auto -35px auto !important;
+}
+
+.foto-perfil {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 4px solid var(--branco);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  background: #eee;
+}
+
+.input-arquivo_editar,
+.input-arquivo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.botao-upload {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--laranja);
+  color: #fff;
+  font-size: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Títulos */
+h2 {
+  font-size: 20px !important;
+  color: var(--preto);
+  margin: 8px 0 12px 0;
+}
+
+p {
+  font-size: 15px;
+  color: #555;
+  margin: 0 0 12px 0;
+}
+
+/* SUPERFÍCIE: quando NÃO existir .form-container, aplica estilo direto no form
+   (apenas quando o form é filho direto de .page-content para evitar duplicar estilos) */
+.page[data-name="editar_aluno"] .page-content > #editarForm,
+.page[data-name="editar_prof"]  .page-content > #editarProfForm {
+  padding: 22px;
+  margin: 70px auto 26px auto;
+  max-width: 940px;
+  background: var(--branco);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
+}
+
+/* Layout dos formulários (com ou sem container) */
+#editarForm,
+#editarProfForm,
+.form-container form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .form-container { padding: 26px; }
+  .page[data-name="editar_aluno"] .page-content > #editarForm,
+  .page[data-name="editar_prof"]  .page-content > #editarProfForm { padding: 26px; }
+  #editarForm,
+  #editarProfForm,
+  .form-container form { gap: 14px; }
+}
+
+.input-title {
+  font-size: 14px;
+  color: var(--texto-sec);
+  margin: 10px 0 6px 2px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* Inputs (com ou sem container) */
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="tel"],
+.form-container input[type="text"],
+.form-container input[type="number"],
+#editarForm input[type="email"],
+#editarForm input[type="password"],
+#editarForm input[type="tel"],
+#editarForm input[type="text"],
+#editarForm input[type="number"],
+#editarProfForm input[type="email"],
+#editarProfForm input[type="password"],
+#editarProfForm input[type="tel"],
+#editarProfForm input[type="text"],
+#editarProfForm input[type="number"] {
+  width: 100%;
+  height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--preto);
+  outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+  box-sizing: border-box;
+}
+
+/* Removido o foco laranja dos inputs */
+.form-container input:focus,
+#editarForm input:focus,
+#editarProfForm input:focus {
+  border-color: var(--borda);
+  box-shadow: none;
+  outline: none;
+}
+
+.form-container input::placeholder,
+#editarForm input::placeholder,
+#editarProfForm input::placeholder { color: #9a9a9a; }
+
+/* Wrapper para ícone de senha */
+.input-wrapper { position: relative; }
+.input-wrapper input[type="password"],
+.input-wrapper input[type="text"] { padding-right: 42px; }
+
+.password-toggle-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #9a9a9a;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+  z-index: 1;
+}
+
+/* Botões salvar (com ou sem container) */
+.btn-salvar,
+.btn-salvar-prof {
+  margin-top: 8px;
+  height: 44px;
+  padding: 0 16px;
+  width: 100%;
+  background: var(--laranja);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .2s ease, transform .06s ease;
+}
+
+.btn-salvar:hover,
+.btn-salvar-prof:hover { background: #e75000; }
+
+.btn-salvar:active,
+.btn-salvar-prof:active { transform: translateY(1px); background: #d64500; }
+
+.btn-salvar:disabled,
+.btn-salvar-prof:disabled { background: #f0a580; cursor: not-allowed; }
+
+/* Toolbar (se presente) */
+.toolbar-bottom {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1000;
+  background: #fff;
+  border-top: 1px solid #e3e3e3;
+}
+
+/* Mantém padding inferior quando o teclado abre nessas páginas */
+.keyboard-open .page[data-name="editar_aluno"] .page-content,
+.keyboard-open .page[data-name="editar_prof"] .page-content {
+  padding-bottom: calc(env(safe-area-inset-bottom, 0) + 56px) !important;
+}
+
+/* Responsivo */
+@media (max-width:480px) {
+  .foto-container { width: 120px; }
+  .foto-perfil { width: 120px; height: 120px; }
+  .botao-upload, .input-arquivo_editar { width: 34px; height: 34px; line-height: 34px; }
+  .title-logo2 { font-size: 18px; }
+}
+
+/* Remover o “card” do formulário de edição do professor */
+.page[data-name="editar_prof"] .page-content > #editarProfForm {
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin: 16px 0 26px !important;
+  padding: 0 4px !important;
+}
+
+/* Ajuste da foto no editar_prof quando sem card */
+.page[data-name="editar_prof"] .foto-container {
+  margin: 10px auto 8px auto !important;
+}
+
+/* Iguais ao prof: remover “card” e desabilitar scroll no aluno */
+.page[data-name="editar_aluno"] .page-content > #editarForm {
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin: 16px 0 26px !important;
+  padding: 0 4px !important;
+}
+
+/* Sem scroll no aluno para igualar o comportamento */
+.page[data-name="editar_aluno"] .page-content {
+  overflow: hidden !important;
+}
+
+.page[data-name="editar_aluno"] {
+  height: 100vh;
+  overflow: hidden;
+}

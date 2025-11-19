@@ -1,0 +1,163 @@
+:root {
+  --branco: #fff;
+  --gelo: #f1f1f1;
+  --preto: #2a2a2a;
+  --laranja: #f86100;
+  --transparente: #ffffff00;
+}
+
+.page-content {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  background-color: #f1f1f1;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.login-container h1 {
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.login-subtitle {
+  font-size: 18px;
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+.title-input {
+  font-size: 20px;
+  text-align: left;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.list,
+.list ul,
+.list li,
+.list .item-content,
+.list .item-inner,
+.list .item-input,
+.list .item-input-wrap {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  border: none !important;
+}
+
+.list ul:before,
+.list ul:after,
+.list .item-inner:after,
+.list .item-content:after  {
+  display: none !important;
+}
+
+.list .item-input-wrap input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+.item-input input::placeholder {
+  color: #999;
+}
+
+.button {
+  height: 50px;
+  font-size: 16px;
+  border-radius: 8px;
+  text-transform: none;
+  background: #ff6b22;
+}
+
+.forgot-password {
+  text-align: left;
+  margin-bottom: 32px;
+  margin-left: 15px;
+}
+
+.forgot-password a {
+  color: #ff6b00;
+  text-decoration: none;
+}
+
+.login-button {
+  margin-top: 50%;
+  margin-bottom: 24px;
+  justify-items: center;
+  align-items: center;
+}
+
+.login-button .button {
+  width: 80%;
+  height: 60px;
+  background: #ff6b00;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: -8px;
+  margin-bottom: 7%;
+}
+
+.signup-link p {
+  color: #666;
+}
+
+.signup-link a {
+  color: #ff6b00;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navbar {
+  background: transparent;
+}
+
+.navbar .icon-back {
+  color: #000;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.top-nav2 {
+  background-color: var(--gelo);
+  padding: 15px !important;
+  height: 40px !important;
+  text-align: center;
+}
+
+.title-logo2 {
+  color: #333;
+  font-size: 18px;
+  margin: 0;
+}
+
+.msg {
+  margin-top: -15px;
+}

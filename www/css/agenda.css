@@ -1,0 +1,552 @@
+:root {
+    --branco: #fff;
+    --gelo: #f1f1f1;
+    --preto: #2a2a2a;
+    --laranja: #f86100;
+    --transparente: #ffffff00;
+    --cinza-claro: #f5f5f5;
+    --cinza-medio: #e0e0e0;
+    --cinza-escuro: #666;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--gelo);
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.btn-voltar {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px;
+    z-index: 10;
+}
+
+.titulo-pagina {
+    font-size: 20px;
+    font-weight: 600;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.page-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 15px 120px 15px;
+}
+
+/* Info do Aluno Logado */
+.aluno-info-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.aluno-avatar {
+    width: 60px;
+    height: 60px;
+    background: var(--laranja);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: white;
+    font-size: 24px;
+}
+
+.aluno-dados h2 {
+    color: var(--preto);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.aluno-dados p {
+    color: var(--cinza-escuro);
+    font-size: 14px;
+}
+
+.calendario-container {
+    background: white;
+    border-radius: 15px;
+    padding: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 12px;
+}
+
+.mes-ano {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.mes-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.dia-numero {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--preto);
+    line-height: 1;
+}
+
+.mes-nome {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--preto);
+    text-transform: uppercase;
+}
+
+.ano-numero {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cinza-escuro);
+}
+
+.btn-mes {
+    background: var(--gelo);
+    border: none;
+    font-size: 24px;
+    color: var(--laranja);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    width: 44px;
+    height: 44px;
+}
+
+.btn-mes:hover {
+    background-color: var(--cinza-medio);
+}
+
+.btn-mes:active {
+    transform: scale(0.95);
+}
+
+.dias-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.dia-semana {
+    text-align: center;
+    font-weight: 600;
+    color: var(--cinza-escuro);
+    padding: 12px 4px;
+    font-size: 14px;
+}
+
+.dias-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    min-height: 240px;
+}
+
+.dia {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    font-size: 16px;
+    min-height: 40px;
+    color: var(--preto);
+}
+
+.dia:hover {
+    background-color: var(--gelo);
+}
+
+.dia.mes-anterior,
+.dia.proximo-mes {
+    color: var(--cinza-medio);
+    opacity: 0.5;
+}
+
+.dia.hoje {
+    background-color: var(--laranja);
+    color: white;
+    font-weight: 600;
+}
+
+.dia.selecionado {
+    background-color: var(--laranja);
+    color: white;
+}
+
+.dia.com-evento {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    font-weight: 600;
+}
+
+.dia.com-evento.selecionado,
+.dia.com-evento.hoje {
+    background-color: var(--laranja);
+    color: white;
+}
+
+.filtro-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filtro-btn {
+    background: var(--gelo);
+    border: none;
+    font-size: 20px;
+    color: var(--cinza-escuro);
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.eventos-container {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-height: 120px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.evento-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    border-bottom: 1px solid var(--gelo);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.evento-item:hover {
+    background-color: var(--gelo);
+}
+
+.evento-item:last-child {
+    border-bottom: none;
+}
+
+.evento-info {
+    flex: 1;
+}
+
+.evento-titulo {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--preto);
+    margin-bottom: 8px;
+}
+
+.evento-descricao {
+    font-size: 14px;
+    color: var(--cinza-escuro);
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: var(--gelo);
+    border-radius: 6px;
+    border-left: 3px solid var(--laranja);
+}
+
+.evento-detalhes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--cinza-escuro);
+    font-size: 14px;
+    flex-wrap: wrap;
+}
+
+.evento-horario {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.evento-local {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sem-eventos {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--cinza-escuro);
+    font-size: 16px;
+}
+
+.sem-eventos i {
+    font-size: 48px;
+    opacity: 0.3;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.tab-bar {
+    height: 80px;
+    background: white;
+    border-top: 1px solid var(--gelo);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10px;
+    flex-shrink: 0;
+}
+
+.tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 16px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--cinza-escuro);
+    min-width: 60px;
+}
+
+.tab-item.active {
+    background-color: var(--laranja);
+    color: white;
+}
+
+.tab-item i {
+    font-size: 20px;
+}
+
+.tab-item span {
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.view-main, .page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--laranja) 0%, #ff8c00 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.loading-content {
+    text-align: center;
+    color: white;
+    padding: 40px 20px;
+    max-width: 300px;
+}
+
+.loading-spinner {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: spin 1s linear infinite;
+}
+
+.loading-overlay h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.loading-overlay p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    color: white;
+}
+
+.loading-progress {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: white;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* Hide overlay when loaded */
+.loading-overlay.hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+/* Show content when loaded */
+.page-content.show {
+    display: block !important;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries para dispositivos móveis */
+@media (max-width: 480px) {
+    .page-content {
+        padding: 10px;
+        gap: 15px;
+        padding-bottom: 80px;
+    }
+
+    .aluno-info-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .aluno-avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin-right: 12px;
+    }
+
+    .aluno-dados h2 {
+        font-size: 16px;
+    }
+
+    .aluno-dados p {
+        font-size: 12px;
+    }
+
+    .calendario-container {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .mes-ano {
+        padding: 0 5px;
+        margin-bottom: 15px;
+    }
+
+    .dia-numero {
+        font-size: 28px;
+    }
+
+    .ano-numero {
+        font-size: 12px;
+    }
+
+    .btn-mes {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    .dias-semana {
+        gap: 2px;
+    }
+
+    .dia-semana {
+        padding: 8px 2px;
+        font-size: 12px;
+    }
+
+    .dias-grid {
+        gap: 2px;
+        min-height: 200px;
+    }
+
+    .dia {
+        min-height: 32px;
+        font-size: 14px;
+        border-radius: 6px;
+    }
+
+    .eventos-container {
+        border-radius: 10px;
+    }
+
+    .evento-item {
+        padding: 15px;
+    }
+
+    .evento-detalhes {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 320px) {
+    .dia-numero {
+        font-size: 24px;
+    }
+
+    .mes-nome {
+        font-size: 14px;
+    }
+
+    .dia {
+        min-height: 28px;
+        font-size: 12px;
+    }
+
+    .dia-semana {
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,160 @@
+:root {
+    --branco: #fff;
+    --gelo: #f1f1f1;
+    --preto: #2a2a2a;
+    --laranja: #f86100;
+}
+
+body {
+    background-color: var(--gelo);
+    margin: 0;
+    padding: 0;
+}
+
+.page-content {
+    padding: 16px;
+}
+
+.top-nav2 {
+    width: 100%;
+    height: 80px;
+    background: var(--laranja);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.title-logo2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--branco);
+}
+
+.block {
+    background-color: var(--branco);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin: 24px auto;
+    max-width: 100%;
+}
+
+.block img {
+    margin-top: -8px;
+}
+
+.size1 {
+    height: 42%;
+}
+
+.block h2 {
+    font-size: 24px;
+    color: var(--preto);
+    margin-bottom: 10px;
+}
+
+.block p {
+    font-size: 18px;
+    color: #444;
+}
+
+.foto-container {
+    position: relative;
+    width: 120px;
+    margin: 0 auto;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.foto-perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: -15px !important;
+}
+
+.input-arquivo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.botao-upload {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background-color: var(--laranja);
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.btnEditar {
+    margin: 10px auto 0 auto;
+    padding: 10px 20px;
+    width: 150px;
+    background-color: var(--laranja);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+#uploadFotoForm button:hover {
+    background-color: #e75000;
+}
+
+#uploadFotoForm button:active {
+    background-color: #d64500;
+}
+
+#uploadFotoprofForm button {
+    margin: 10px auto 0 auto;
+    padding: 10px 20px;
+    width: 40%;
+    background-color: var(--laranja);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+#uploadFotoprofForm button:hover {
+    background-color: #e75000;
+}
+
+#uploadFotoprofForm button:active {
+    background-color: #d64500;
+}
+
+.orange {
+    background-color: var(--laranja) !important;
+}
+
+.esp1{
+    margin-top: 1% !important;
+}
+
+.esp2{
+    margin-top: 1% !important;
+    margin-bottom: 5% !important;
+}

@@ -1,0 +1,514 @@
+.page-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 80px !important; /* Ajustado para garantir espaço */
+}
+
+.professor-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.treinos-container {
+    padding: 0 15px;
+}
+
+.treino-card {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.treino-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.treino-header {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.treino-titulo {
+    margin-bottom: 8px;
+}
+
+.treino-titulo h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.treino-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-expand {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-expand:hover {
+    background: #e9ecef;
+}
+
+.btn-expand i {
+    transition: transform 0.2s ease;
+}
+
+.treino-meta {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 13px;
+    color: #666;
+    width: 100%;
+}
+
+.treino-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Badges para tipos de treino */
+.tipo-badge {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 11px;
+}
+
+.tipo-hipertrofia { background: #fff3e0; color: #f57c00; }
+.tipo-cardio { background: #e8f5e8; color: #388e3c; }
+.tipo-forca { background: #fce4ec; color: #c2185b; }
+.tipo-funcional { background: #f3e5f5; color: #7b1fa2; }
+
+/* Box de observações */
+.observacoes-box {
+    background: #f8f9fa;
+    border-left: 4px solid #007bff;
+    padding: 12px 16px;
+    margin: 0 20px 20px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.observacoes-box i {
+    color: #007bff;
+    margin-right: 8px;
+}
+
+/* Container de exercícios */
+.exercicios-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.exercicios-container.show {
+    max-height: 1000px;
+    transition: max-height 0.5s ease-in;
+}
+
+.exercicio-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+}
+
+.exercicio-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.exercicio-checkbox {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.exercicio-checkbox input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.checkbox-custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    background: white;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exercicio-checkbox input[type="checkbox"]:checked + .checkbox-custom {
+    border-color: #4CAF50;
+    background: #4CAF50;
+}
+
+.exercicio-checkbox input[type="checkbox"]:checked + .checkbox-custom::after {
+    content: '✓';
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.exercicio-nome {
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+/* Exercício concluído */
+.exercicio-item.concluido .exercicio-nome {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.exercicio-item.concluido {
+    background: #f8f9fa;
+}
+
+.exercicio-concluido-info {
+    font-size: 12px;
+    color: #4CAF50;
+    font-style: italic;
+    margin-top: 4px;
+}
+
+/* Loading state para checkbox */
+.exercicio-checkbox.loading .checkbox-custom {
+    border-color: #007bff;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Estilo para botão do vídeo */
+.exercicio-video {
+    margin-top: 12px;
+}
+
+.exercicio-video video {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: #000;
+    max-width: 100%;
+    height: auto;
+}
+
+.exercicio-video video::-webkit-media-controls-panel {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.exercicio-video video::-webkit-media-controls-play-button,
+.exercicio-video video::-webkit-media-controls-volume-slider,
+.exercicio-video video::-webkit-media-controls-timeline {
+    filter: invert(1);
+}
+
+/* Responsividade para vídeo */
+@media (max-width: 768px) {
+    .exercicio-video video {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .exercicio-video video {
+        height: 160px;
+    }
+}
+
+/* Estados vazios e loading */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.empty-state i {
+    font-size: 64px;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.empty-state p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Loading */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+/* Busca */
+.search-container {
+    padding: 15px;
+    background: white;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+/* =========================
+   PROFESSOR INFO CARD (novo)
+   ========================= */
+.professor-info-card {
+    background: white;
+    border-radius: 15px;
+    padding: 14px;
+    margin: 0 20px 15px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    gap: 12px;
+    transition: transform 0.2s ease;
+}
+
+.professor-avatar {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    background: #f86100;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    color: white;
+    font-size: 26px;
+    overflow: hidden;
+}
+
+.professor-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.professor-dados h2 {
+    color: #1e293b;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.professor-dados p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Responsividade pequena */
+@media (max-width: 480px) {
+    .professor-info-card {
+        padding: 12px;
+    }
+    .professor-avatar {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+    .professor-dados h2 {
+        font-size: 1rem;
+    }
+}
+
+/* Barra de progresso do card (estilos mínimos) */
+.progress-track {
+    background: #e4e4e4;
+    border-radius: 6px;
+    height: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff7a3d 0%, #f86100 100%);
+    border-radius: 6px 0 0 6px;
+    transition: width 300ms ease;
+}
+
+/* Ajuste do botão iniciar dentro do card para ficar similar à imagem */
+.treino-card .button-fill {
+    background: #f86100;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+/* Pequenos ajustes responsivos */
+@media (max-width: 480px) {
+    .treino-card { padding: 0; }
+    .progress-track { height: 8px; }
+    .treino-card h3 { font-size: 15px; }
+}
+
+/* Estilos para tela de exercícios (layout semelhante à imagem) */
+.exercicio-card {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 12px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.exercicio-left {
+    width: 36px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.exercicio-ordem {
+    width:36px;height:36px;border-radius:8px;background:#f1f5f9;color:#333;display:flex;align-items:center;justify-content:center;font-weight:700;
+}
+
+.exercicio-body {
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.exercicio-row {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+
+.exercicio-titulo {
+    font-weight:700;
+    color:#1f2937;
+    font-size:15px;
+}
+
+.exercicio-badges {
+    margin-top:8px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.badge {
+    background:#fff9f6;
+    border:1px solid #ffe8d6;
+    color:#f56a00;
+    padding:6px 8px;
+    border-radius:10px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.peso-badge { background:#f6f6ff; color:#6b21a8; border-color:#e9d5ff; }
+
+.exercicio-actions-row {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:10px;
+}
+
+.observacoes-mini { display:flex; align-items:center; gap:6px; color:#f59e0b; font-weight:600; font-size:13px; }
+.observacoes-mini i { font-size:18px; color:#f59e0b; }
+
+.exercicio-box-concluido {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+.exercicio-box-concluido input[type="checkbox"] { display:none; }
+.checkbox-visual {
+    width:40px;height:40px;border-radius:8px;border:2px solid #f3a57a;display:flex;align-items:center;justify-content:center;color:#fff;background:#fff;
+    transition:all .2s;
+}
+.exercicio-card.concluido .checkbox-visual {
+    background: linear-gradient(180deg,#ff884d,#f86100);
+    border-color:transparent;
+    box-shadow: 0 6px 18px rgba(248,97,0,0.28);
+}
+.checkbox-visual i { display:none; }
+
+.btn-play {
+    background:transparent;border:none;color:#f86100;font-size:20px;border-radius:8px;padding:6px;
+}
+
+/* Espaço de segurança no conteúdo para não ficar atrás do botão */
+.page-content { padding-bottom: 110px; }
+
+/* Responsividade */
+@media (max-width:480px) {
+    .exercicio-card { margin: 10px 12px; padding:10px; }
+    .checkbox-visual { width:34px;height:34px; }
+    .exercicio-ordem { width:32px;height:32px; font-size:14px; }
+}
